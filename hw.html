@@ -20,10 +20,46 @@
         </p>
     </section>
 
+    <section>
+        <h4>
+
+            Online currency converter =)) EUR = 38 UAH <br>
+            Euro to Hryvnia
+        </h4>
+        <input type="text" class="name2">
+        <button class="btn2">Send</button>
+        <p>
+            at the exchange rate:
+            <span class="out2"></span>
+        </p>
+    </section>
 
     <script>
-// Sasha
+        // Sasha
+        let name = document.querySelector('.name');
 
+        let btn1 = document.querySelector('.btn1');
+
+        let out1 = document.querySelector('.out1');
+
+        btn1.onclick = () => {
+            out1.innerHTML = name.value;
+        }
+
+
+        let name2 = document.querySelector('.name2');
+
+        let btn2 = document.querySelector('.btn2');
+
+        let out2 = document.querySelector('.out2');
+
+        const exchange = (38);
+
+        let res = (name2 * exchange);
+
+        btn2.onclick = () => {
+            out2.innerHTML = res.value;
+        }
 
 
 
