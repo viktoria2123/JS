@@ -53,12 +53,13 @@
 
         let out2 = document.querySelector('.out2');
 
-        const exchange = (38);
+        const exchange = 38;
 
-        let res = (name2 * exchange);
+        // let res = (name2 * exchange);
 
         btn2.onclick = () => {
-            out2.innerHTML = res.value;
+              let res = name2.value * exchange;
+            out2.innerHTML = res;
         }
 
 
