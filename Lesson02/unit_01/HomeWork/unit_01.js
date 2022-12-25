@@ -128,3 +128,17 @@ console.log(out19);
 
 let out20 = document.querySelector('.out-20');
 out20.textContent = '<h2>Hi</h2>';
+
+// Task 21
+// Виконай додавання 0,1 і 0,2 добийся математично правильної відповіді.
+let x = 0.1;
+let y = 0.2;
+let out21 = document.querySelector('.out-21');
+out21.innerHTML = x+y;
+
+// Task 22
+// Виконай додавання рядка "1" і цифри 2 (обидві операнди повинні бути в змінних), добийся математично правильної відповіді.
+let q = "1";
+let w = 2;
+let out22 = document.querySelector('.out-22');
+out22.innerHTML = +q+w;
