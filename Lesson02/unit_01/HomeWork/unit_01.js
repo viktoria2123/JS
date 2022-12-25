@@ -142,3 +142,17 @@ let q = "1";
 let w = 2;
 let out22 = document.querySelector('.out-22');
 out22.innerHTML = +q+w;
+
+// Task 23
+// Користувач вказує обсяг флешки в Гб. Програма повинна порахувати скільки файлів розміром в 820 Мб поміщається на флешку.
+let name = document.querySelector('.name');
+let btn = document.querySelector('.btn');
+let out = document.querySelector('.out');
+let out2 = document.querySelector('.out2');
+const mb = 1000;
+btn.onclick = () => {
+    let res = (name.value*mb)/820;
+    out.innerHTML = res;
+    let res2 = (name.value*mb) % 820;
+    out2.innerHTML = res2;
+}
