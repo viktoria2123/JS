@@ -170,3 +170,15 @@ btn2.onclick = () => {
     out3.innerHTML = Math.floor(+name2.value / +name3.value);
     out4.innerHTML = +name2.value % +name3.value;
 }
+
+// Task 25
+// Користувач вводить суму вкладу в банк на 2 місяці, з процентною ставкою депозиту 5% річних. 
+// Вивести суму нарахованих відсотків.
+let name4 = document.querySelector('.name4');
+let out5 = document.querySelector('.out5');
+let btn3 = document.querySelector('.btn3');
+
+btn3.onclick = () => {
+    const percent = (0.5 / 12 * 2);
+    out5.innerHTML = +name4.value * percent;
+}
