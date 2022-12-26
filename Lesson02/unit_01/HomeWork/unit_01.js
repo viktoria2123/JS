@@ -151,8 +151,22 @@ let out = document.querySelector('.out');
 let out2 = document.querySelector('.out2');
 const mb = 1000;
 btn.onclick = () => {
-    let res = (name.value*mb)/820;
+    let res = Math.floor(name.value*mb)/820;
     out.innerHTML = res;
     let res2 = (name.value*mb) % 820;
     out2.innerHTML = res2;
+}
+
+// Task 24
+// Користувач вводить суму грошей в гаманці і ціну однієї шоколадки. 
+// Програма виводить скільки шоколадок може купити користувач і скільки здачі у нього залишиться.
+let name2 = document.querySelector('.name2');
+let name3 = document.querySelector('.name3');
+let btn2 = document.querySelector('.btn2');
+let out3 = document.querySelector('.out3');
+let out4 = document.querySelector('.out4');
+
+btn2.onclick = () => {
+    out3.innerHTML = Math.floor(+name2.value / +name3.value);
+    out4.innerHTML = +name2.value % +name3.value;
 }

@@ -162,16 +162,22 @@ b13.onclick = () => {
 }
 
 
-// Task 14.
+// Task 14.!!!
 // По нажатию кнопки .b-14 выполняется функция t14. Она заменяет значение value в input.i-14 на строку 'Go';
 
 function t14() {
 
 }
 
-document.querySelector('.b-14').onclick = t14;
+// document.querySelector('.b-14').onclick = t14;
 
-// Task 15.
+let b14 = document.querySelector('.b-14');
+let i14 = document.querySelector('.i-14');
+b14.onclick = () => {
+    i14.innerHTML = ('Go');
+}
+
+// Task 15.!!!
 //  По нажатию кнопки .b-15 выполняется функция t15. Она присваивает .i-15 свойство style.border = "4px solid red";
 
 function t15() {
@@ -187,9 +193,17 @@ function t16() {
 
 }
 
-document.querySelector('.b-16').onclick = t16;
+// document.querySelector('.b-16').onclick = t16;
 
-// Task 17.
+let b16 = document.querySelector('.b-16');
+let i16_1 = document.querySelector('.i-16-1');
+let i16_2 = document.querySelector('.i-16-2');
+let out16 = document.querySelector('.out-16');
+b16.onclick = () => {
+    out16.innerHTML = (i16_1.value + i16_2.value);
+}
+
+// Task 17.!!!!!
 // По нажатию на кнопку .b-17 выполняется функция t17. Функция получает из .i-17 число. Изучите работу кода и запомните отличия. Попробуйте ввести числа 5, 4zz, zz4, -200, 33.05
 
 function t17() {
@@ -208,7 +222,13 @@ function t18() {
 
 }
 
-document.querySelector('.b-18').onclick = t18;
+// document.querySelector('.b-18').onclick = t18;
+let b18 = document.querySelector('.b-18');
+let i18 = document.querySelector('.i18');
+let out18 = document.querySelector('.out-18');
+b18.onclick = () => {
+    out18.innerHTML = parseFloat(i18.value);
+}
 
 // Task 19.
 // По нажатию кнопки .b-19 функция t19 дожна в out-19 вывести сумму двух отрицательных чисел из input .i-19-1 и .i-19-2. 
@@ -217,16 +237,29 @@ function t19() {
 
 }
 
-document.querySelector('.b-19').onclick = t19;
+// document.querySelector('.b-19').onclick = t19;
 
-// Task 20
+let b19 = document.querySelector('.b-19');
+let out19 = document.querySelector('.out-19');
+let i19_1 = document.querySelector('.i-19-1');
+let i19_2 = document.querySelector('.i-19-2');
+b18.onclick = () => {
+    out19.innerHTML = (+i19_1.value + +i19_2.value);
+}
+
+
+// Task 20 - !!!!
 // При нажатии на кнопку .b-20 в out-20 выводится число - сколько раз была нажата кнопка .b-20;
 
 let count = 0;
+let b20 = document.querySelector('.b-20');
+let out20 = document.querySelector('.out-20');
 
 function t20() {
     count = count + 1; // можно сократить count++
-    // тут допишите вывод в out-20
+    out20.onclick = () => {
+        b20.innerHTML = (+count.valueOf);
+    }
 }
 
-document.querySelector('.b-20').onclick = t20;
+// document.querySelector('.b-20').onclick = t20;
