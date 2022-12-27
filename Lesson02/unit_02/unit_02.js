@@ -174,7 +174,7 @@ function t14() {
 let b14 = document.querySelector('.b-14');
 let i14 = document.querySelector('.i-14');
 b14.onclick = () => {
-    i14.innerHTML = ('Go');
+    i14.value = 'Go';
 }
 
 // Task 15.!!!
@@ -251,14 +251,14 @@ b18.onclick = () => {
 // Task 20 - !!!!
 // При нажатии на кнопку .b-20 в out-20 выводится число - сколько раз была нажата кнопка .b-20;
 
-let count = 0;
+let count = 1;
 let b20 = document.querySelector('.b-20');
 let out20 = document.querySelector('.out-20');
 
 function t20() {
     count = count + 1; // можно сократить count++
     out20.onclick = () => {
-        b20.innerHTML = (+count.valueOf);
+        b20.innerHTML = (count++);
     }
 }
 
