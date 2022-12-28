@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Гра камінь/ножиці</h1>
+    <input class="inp" type="text" />
+    <button>Грати</button>
+    <h2>
+      Ваш результат:
+      <span class="out">Камінь vs Бумага</span>
+    </h2>
+    <script>
+      let inp = document.querySelector(".inp");
+      let out = document.querySelector(".out");
+      let button = document.querySelector("button");
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+
+      // 0 = камінь 1 = ножиці 2 = бумага
+      // button.onclick = () => {
+      //   if (getRandomInt(3) < 1) = "Камінь";
+      //   if (getRandomInt(3) == 1) {getRandomInt(3) = "Ножиці"};
+      //   if (getRandomInt(3) == 2) {getRandomInt(3) = "Бумага"};
+      //   out.innerHTML = 'Test'
+      // };
+    </script>
+  </body>
+</html>
