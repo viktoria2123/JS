@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="Sasha">Sasha</option>
+        <option value="Sveta">Sveta</option>
+        <option value="Olha">Olha</option>
+        <option value="Vika">Vika</option>
+      </select>
+      
+      <input class="inp" type="number">
+      
+      <button>clear</button>
+      
+      <ol class="out">
+      </ol>
+
+
+      <script>
+        let users = document.querySelector('select');
+        let out = document.querySelector('.out');
+        let inp = document.querySelector('.inp');
+        let btn = document.querySelector('button');
+
+        users.onchange = () => {
+            out.innerHTML = " ";
+        // console.log(+inp.value);
+
+
+        
+
+        if (inp.value == " " || inp.value == 0) {
+            out.innerHTML = "Ви нічого не ввели";
+        } else {
+          for(let i=0;i<inp.value;i++){
+         out.innerHTML += `<li>${users.value}</li>`;
+         }
+        console.log(users.value)  
+        }
+
+         }
+
+         btn.onclick = () => {
+            out.innerHTML = " ";
+        }
+
+
+      </script>
+</body>
+</html>

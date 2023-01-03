@@ -18,151 +18,170 @@
       let inp = document.querySelector(".inp");
       let out = document.querySelector(".out");
       let button = document.querySelector("button");
-      const Колодязь = 'Колодязь';
-      const Ножиці = "Ножиці";
-      const Папір = "Папір";
+
 
       function getRandomInt(max) {
         return Math.floor(Math.random() * max);
       }
-        button.onclick = () => {
-        if (getRandomInt(max) === 0) {
-          inp.value = Колодязь;
-        }
-        else  if (getRandomInt(max) === 1) {
-          inp.value = Ножиці;
-        }
-        else {
-          inp.value = Папір;
+
+      button.onclick = () => {
+        // out.innerHTML = getRandomInt(3);
+
+        switch (inp.value) {
+          case "Колодязь": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Колодязь vs Колодязь = Нічия`
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML - `Колодязь vs Ножиці = Ви виграли`
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML - `Колодязь vs Папір = Ви програли`
+            }
+            break;
+          }
         }
       }
+
+
+
+
+    //     button.onclick = () => {
+    //     if (getRandomInt(max) === 0) {
+    //       inp.value = Колодязь;
+    //     }
+    //     else  if (getRandomInt(max) === 1) {
+    //       inp.value = Ножиці;
+    //     }
+    //     else {
+    //       inp.value = Папір;
+    //     }
+    //   }
 
 
     
-        button.onclick = () => {
-        if (getRandomInt(3) === 0) {
-          inp.value = Колодязь;
-        }
-        else  if (getRandomInt(3) === 1) {
-          inp.value = Ножиці;
-        }
-        else if (getRandomInt(3) === 2){
-          inp.value = Папір;
-        }
+    //     button.onclick = () => {
+    //     if (getRandomInt(3) === 0) {
+    //       inp.value = Колодязь;
+    //     }
+    //     else  if (getRandomInt(3) === 1) {
+    //       inp.value = Ножиці;
+    //     }
+    //     else if (getRandomInt(3) === 2){
+    //       inp.value = Папір;
+    //     }
 
-        // if (inp.value === Колодязь || inp.value === Ножиці || inp.value === Папір) {
+    //     // if (inp.value === Колодязь || inp.value === Ножиці || inp.value === Папір) {
 
-          // Ножиці
-        if (inp.value === Ножиці){
-          out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Нічия`;
-        } else if (inp.value === Ножиці) {
-          out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви програли`;
-        } else {
-          out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви виграли`;
-        }
+    //       // Ножиці
+    //     if (inp.value === Ножиці){
+    //       out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Нічия`;
+    //     } else if (inp.value === Ножиці) {
+    //       out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви програли`;
+    //     } else {
+    //       out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви виграли`;
+    //     }
 
-        // if (inp.value === Ножиці){
-        //   out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви програли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Ножиці){
+    //     //   out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви програли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
-        // if (inp.value === Ножиці){
-        //   out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви виграли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Ножиці){
+    //     //   out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви виграли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
 
-        // Колодязь
-        if (inp.value === Колодязь){
-          out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Нічия` ;
-        } else if (inp.value === Колодязь){
-          out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви виграли` ;
-        }
-        else {
-          out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви програли` ;
-        }
+    //     // Колодязь
+    //     if (inp.value === Колодязь){
+    //       out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Нічия` ;
+    //     } else if (inp.value === Колодязь){
+    //       out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви виграли` ;
+    //     }
+    //     else {
+    //       out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви програли` ;
+    //     }
  
-        // if (inp.value === Колодязь){
-        //   out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви виграли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Колодязь){
+    //     //   out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви виграли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
-        // if (inp.value === Колодязь){
-        //   out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви програли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Колодязь){
+    //     //   out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Ви програли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
-        // Папір
+    //     // Папір
 
-        if (inp.value === Папір){
-          out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Нічия` ;
-        } else if(inp.value === Папір){
-          out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви виграли` ;
-        }
-        else {
-          out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви програли` ;
-        }
+    //     if (inp.value === Папір){
+    //       out.innerHTML = `${getRandomInt(3) === 2 && "Папір"} vs ${inp.value} = Нічия` ;
+    //     } else if(inp.value === Папір){
+    //       out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви виграли` ;
+    //     }
+    //     else {
+    //       out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви програли` ;
+    //     }
 
-        // if (inp.value === Папір){
-        //   out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви виграли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Папір){
+    //     //   out.innerHTML = `${getRandomInt(3) === 0 && "Колодязь"} vs ${inp.value} = Ви виграли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
-        // if (inp.value === Папір){
-        //   out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви програли` ;
-        // } else {
-        //   out.innerHTML = 'error!'
-        // }
+    //     // if (inp.value === Папір){
+    //     //   out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value} = Ви програли` ;
+    //     // } else {
+    //     //   out.innerHTML = 'error!'
+    //     // }
 
-      }
-        // }
+    //   }
+    //     // }
       
 
-      // button.onclick = () => {
-      //   if (inp.value === f) {
-      //     out.innerHTML = "Нічия";
-      //   } 
+    //   // button.onclick = () => {
+    //   //   if (inp.value === f) {
+    //   //     out.innerHTML = "Нічия";
+    //   //   } 
         
-        // out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value}`;
+    //     // out.innerHTML = `${getRandomInt(3) === 1 && "Ножиці"} vs ${inp.value}`;
       
       
-      // if (CompChoise == 0) {
-      //   CompChoise == "Колодязь";
-      //   }
-      //   else if (CompChoise == 1) {
-      //     CompChoise == "Ножиці";
-      //   }
-      //   else {
-      //     CompChoise == "Папір";
-      //   }
+    //   // if (CompChoise == 0) {
+    //   //   CompChoise == "Колодязь";
+    //   //   }
+    //   //   else if (CompChoise == 1) {
+    //   //     CompChoise == "Ножиці";
+    //   //   }
+    //   //   else {
+    //   //     CompChoise == "Папір";
+    //   //   }
 
-    //  if (inp.value == "Колодязь") {
-    //     inp == 0;
-    //    } 
-    //    else if (inp.value == "Ножиці") {
-    //     inp == 1;
-    //    }
-    //    else {
-    //     inp == 3;
-    //    }
+    // //  if (inp.value == "Колодязь") {
+    // //     inp == 0;
+    // //    } 
+    // //    else if (inp.value == "Ножиці") {
+    // //     inp == 1;
+    // //    }
+    // //    else {
+    // //     inp == 3;
+    // //    }
 
 
 
-      // // 0 = Колодязь 1 = Ножиці 2 = Папір
-      // button.onclick = () => {
-      //   if (inp == 0 && CompChoise == 0) {
-      //   out.innerHTML = "Нічия";
-      //   }
-      //   else if (0 === 1) {
-      //     out.innerHTML = "Виграв";
+    //   // // 0 = Колодязь 1 = Ножиці 2 = Папір
+    //   // button.onclick = () => {
+    //   //   if (inp == 0 && CompChoise == 0) {
+    //   //   out.innerHTML = "Нічия";
+    //   //   }
+    //   //   else if (0 === 1) {
+    //   //     out.innerHTML = "Виграв";
 
-      //   }
-      // };
+    //   //   }
+    //   // };
     </script>
   </body>
 </html>
