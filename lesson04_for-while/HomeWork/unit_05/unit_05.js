@@ -250,7 +250,7 @@ function t13() {
 
 document.querySelector('.b-13').onclick = t13;
 
-//  Task 14!!!!!!
+//  Task 14
 // Кнопка .b-14 запускает функцию t14  Функция должна:
 //     получить все input.i-14
 // перебрать их с помощью цикла. Обращение к элементу выглядит так elem[i]
@@ -258,13 +258,14 @@ document.querySelector('.b-13').onclick = t13;
 
 
 function t14() {
-    let i14 = document.querySelectorAll('.i-14');
-    let out14 = document.querySelector('.out-14');
+    let inputs = document.querySelectorAll('.i-14');
+    let out14 = '';
 
-    for (let i = 0; i < i14.lenght; i++) {
-        i14.onchange = () => {
-            out14.innerHTML = i14.value;
-        } 
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].checked) {
+            out14 = inputs[i].value;
+        }
+        document.querySelector('.out-14').innerHTML = out14;
     }
 
 }
