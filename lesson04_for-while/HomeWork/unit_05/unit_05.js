@@ -151,7 +151,7 @@ function t8() {
 document.querySelector('.b-8').onclick = t8;
 
 
-//  Task 9!!!!!
+//  Task 9
 // Есть input .i-91 и .i-92 куда пользователь может ввести числа.
 // По нажатию кнопки .b-9 должна запускаться функция t9, которая выводит в .out-9 числа от меньшего введенного до большего включительно, с шагом 1.
 // Разделитель - подчеркивание. Если пользователь ввел 4 и 8  и нажал кнопку, мы получим:
@@ -162,22 +162,19 @@ document.querySelector('.b-8').onclick = t8;
 // цикл - один
 
 function t9() {
-    let out9 = document.querySelector('.out-9');
-    let i91 = document.querySelector('.i-91');
-    let i92 = document.querySelector('.i-92');
-
-    if (i91 < i92) {
-        for (let i = i91.value; i <= i92.value; i++); {
-            out9.innerHTML += i + '_';
-        } 
-    } 
-
-    if (i92 < i91) {
-        for (let i = i92.value; i <= i91.value; i++); {
-            out9.innerHTML += i + '_';
-        }
+    let out = "";
+    let a1 = +document.querySelector('.i-91').value;
+    let a2 = +document.querySelector('.i-92').value;
+    let i = a1;
+    if (a1 > a2) {
+        i = a2;
+        a2 = a1
+    }
+    for (let k = i; k <= a2; k++) {
+        out += k + "_";
     }
 
+    document.querySelector('.out-9').innerHTML = out;
 }
 
 document.querySelector('.b-9').onclick = t9;
@@ -218,7 +215,7 @@ function t11() {
 
 document.querySelector('.b-11').onclick = t11;
 
-//  Task 12!!!!!!
+//  Task 12
 // Кнопка .b-12 запускает функцию t12.  Функция должна:
 //     получить все div.div-12
 // перебрать их с помощью цикла. Обращение к div выглядит так elem[i]
@@ -228,7 +225,7 @@ document.querySelector('.b-11').onclick = t11;
 function t12() {
     let divs12 = document.querySelectorAll('.div-12');
     for (let i = 0; i < divs12.length; i ++) {
-       divs12[i] = elem[i].style.background = 'orange';
+       divs12[i].style.background = 'orange';
     }
 
 
