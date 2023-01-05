@@ -7,12 +7,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Гра камінь/ножниці</h1>
+    <h1>Колодязь / Ножиці / Папір</h1>
     <input class="inp" type="text" />
     <button>Грати</button>
     <h2>
       Ваш результат:
-      <span class="out">Камінь vs Бумага</span>
+      <span class="out">Колодязь / Ножиці / Папір</span>
     </h2>
     <script>
       let inp = document.querySelector(".inp");
@@ -31,11 +31,40 @@
           case "Колодязь": {
             if (getRandomInt(3) == 0) {
               out.innerHTML = `Колодязь vs Колодязь = Нічия`
-            } else if (getRandomInt(3) == 1) {
+            } 
+            else if (getRandomInt(3) == 1) {
               out.innerHTML - `Колодязь vs Ножиці = Ви виграли`
-            } else if (getRandomInt(3) == 2) {
+            } 
+            else if (getRandomInt(3) == 2) {
               out.innerHTML - `Колодязь vs Папір = Ви програли`
             }
+            break;
+          }
+
+          case "Ножиці": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Ножиці vs Колодязь = Ви програли`
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML - `Ножиці vs Ножиці = Нічия`
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML - `Ножиці vs Папір = Ви виграли`
+            }
+            break;
+          }
+
+          case "Папір": {
+            if (getRandomInt(3) == 0) {
+              out.innerHTML = `Папір vs Колодязь = Ви виграли`
+            } else if (getRandomInt(3) == 1) {
+              out.innerHTML - `Папір vs Ножиці = Ви програли`
+            } else if (getRandomInt(3) == 2) {
+              out.innerHTML - `Папір vs Папір = Нічия`
+            }
+            break;
+          }
+
+          default: {
+            out.innerHTML = 'Невірно обрано!';
             break;
           }
         }
