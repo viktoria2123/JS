@@ -1,0 +1,95 @@
+<!-- <input class='inp1' type="number" name="" id=""> <span>л</span>
+    <select name="" id="">
+        <option value="52">95</option>
+        <option value="55">ДТ</option>
+        <option value="44">92</option>
+    </select>
+    <button class="btn1">Порахувати</button>
+    <div class="out"> 
+      <span>0</span>.Гр
+    </div>
+
+
+<section>
+  <h2>
+    two
+  </h2>
+  Акція 95 по стій ціні
+  <input type="text">
+  <button class="btn2">Порахувати</button>
+  <div class="out2">0</div>
+</section> -->
+
+
+<input class="name" type="text" name="" id="" placeholder="name">
+<input class="age" type="text" name="" id="" placeholder="age">
+<input class="tel" type="text" name="" id="" placeholder="tel">
+<button>add</button>
+<ol class="out">
+  
+</ol>
+
+
+
+
+
+
+<section>
+  sectio 2
+  <ol class="out2">
+  
+</ol>
+  <button class="btn2">add</button>
+</section>
+
+    <script>
+// практична задачка 1
+// let inp = document.querySelector('.inp1');
+// let select = document.querySelector('select');
+// let out1 = document.querySelector('.out span')
+// let button = document.querySelector('.btn1');
+// let button2 = document.querySelector('.btn2');
+// let out2 = document.querySelector('.out2')
+
+// function test(a,b){
+//   return a*b;
+// }
+
+// button.onclick = () => {
+//    out1.innerHTML = test(inp.value, select.value);
+// }
+
+// button2.onclick = () => {
+//    out2.innerHTML = test(inp.value,+52);
+// }
+
+
+
+// практична задачка 2
+let name = document.querySelector('.name');
+let age = document.querySelector('.age');
+let tel = document.querySelector('.tel');
+let btn = document.querySelector('button');
+let out = document.querySelector('.out');
+let out2 = document.querySelector('.out2');
+
+
+function userAdd(out, name, age, tel) {
+ out.innerHTML += `
+   <li>
+     <span>${name}</span>
+     <span>${age}</span>
+     <span>${tel}</span>
+   </li>
+  `
+}
+
+btn.onclick = () => {
+  userAdd(out, name.value, age.value, tel.value)
+}
+document.querySelector('.btn2').onclick = () => {
+  userAdd(out2, name.value, age.value, tel.value)
+}
+    </script>
+</body>
+</html>
