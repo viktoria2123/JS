@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ol>
+        <li>створюемо обект в якому два ключа A і B</li>
+        <li>створити функйцію якак буде виводити сумму</li>
+      </ol>
+      
+      <input class="inp1" type="text">
+      <input class="inp2" type="text">
+      <button>start</button>
+      <div class="out"></div>
+
+
+
+    <script>
+// const user = {
+//    name: 'Sasha',
+//    age: 20,
+// }
+
+// let out = document.querySelector('.out');
+
+// out.innerHTML = user.name + user.age;
+
+let inp1 = document.querySelector('.inp1');
+let inp2 = document.querySelector('.inp2');
+let btn = document.querySelector('button');
+let out = document.querySelector('.out');
+
+
+btn.onclick = () => {
+    const math = {
+    a: +inp1.value,
+    b: +inp2.value,
+    res: function () {
+        return this.a + this.b;
+    }
+}
+
+out.innerHTML = math.res();
+
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
