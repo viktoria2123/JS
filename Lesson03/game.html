@@ -31,23 +31,30 @@
           case "Колодязь": {
             if (getRandomInt(3) == 0) {
               out.innerHTML = `Колодязь vs Колодязь = Нічия`
+              inp.value = ''
             } 
             else if (getRandomInt(3) == 1) {
               out.innerHTML = `Колодязь vs Ножиці = Ви виграли`
+              inp.value = ''
             } 
             else if (getRandomInt(3) == 2) {
               out.innerHTML = `Колодязь vs Папір = Ви програли`
+              inp.value = ''
             }
             break;
+            
           }
 
           case "Ножиці": {
             if (getRandomInt(3) == 0) {
               out.innerHTML = `Ножиці vs Колодязь = Ви програли`
+              inp.value = ''
             } else if (getRandomInt(3) == 1) {
               out.innerHTML = `Ножиці vs Ножиці = Нічия`
+              inp.value = ''
             } else if (getRandomInt(3) == 2) {
               out.innerHTML = `Ножиці vs Папір = Ви виграли`
+              inp.value = ''
             }
             break;
           }
@@ -55,10 +62,13 @@
           case "Папір": {
             if (getRandomInt(3) == 0) {
               out.innerHTML = `Папір vs Колодязь = Ви виграли`
+              inp.value = ''
             } else if (getRandomInt(3) == 1) {
               out.innerHTML = `Папір vs Ножиці = Ви програли`
+              inp.value = ''
             } else if (getRandomInt(3) == 2) {
               out.innerHTML = `Папір vs Папір = Нічия`
+              inp.value = ''
             }
             break;
           }
