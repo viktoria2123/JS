@@ -37,6 +37,16 @@ button:hover {
         color: #000;
 }
 
+input {
+    height: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+label {
+    padding: 10px;
+}
+
 .reg-log__reg {
     display: flex;
     gap: 10px;
