@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="inp" type="text">
+    <input class="inp1" type="number">
+    <button class="btn">add</button>
+
+
+    <button class="btn2">Show all</button>
+    <div class="out">0</div>
+
+    <div class="out2"></div>
+
+
+
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let inp1 = document.querySelector('.inp1')
+        let out = document.querySelector('.out')
+        let out2 = document.querySelector('.out2');
+
+        let users = [];
+
+
+        document.querySelector('.btn').onclick = () => {
+            let obj = {
+                name: inp.value,
+                age: inp1.value,
+            }
+            users.push(obj)
+        }
+
+        document.querySelector('.btn2').onclick = () => {
+            out.innerHTML = '';
+            users.map((i) => {
+                out.innerHTML += `${i.name}, ${i.age}`
+            } )
+            out2.innerHTML=`Counter :${users.length}`;
+        }
+    </script>
+</body>
+
+</html>

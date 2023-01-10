@@ -11,20 +11,26 @@
 
 <div class="wrapper">
     <main class="HW-page">
-        <!-- reg-log -->
-        <section class="reg-log">
-            <div class="container reg-log__container">
-                <div class="reg-log__reg">
-                  <input class="inp1" type="text" placeholder="login">
-                <input class="inp2" type="password" placeholder="password">
-                <label for="">
-                    <input class="inp-ch" type="checkbox">
-                    <span>Мені 18 років</span>
-                </label>
-                <button>Registration</button>
-                <div class="out"></div>  
+        <!-- reg -->
+        <section class="reg">
+            <div class="container reg__container">
+                <div class="reg__reg">
+                    <input class="inp1" type="text" placeholder="login">
+                    <input class="inp2" type="password" placeholder="password">
+                    <label for="">
+                        <input class="inp-ch" type="checkbox">
+                        <span>Мені 18 років</span>
+                    </label>
+                    <button>Registration</button>
+                    <div class="out"></div>
                 </div>
-                
+            </div>
+        </section>
+        <!-- reg end -->
+
+        <!-- log -->
+        <section class="log">
+            <div class="container log__container">
                 <div class="reg-log__log">
                     <input class="inp3" type="text" placeholder="login">
                     <input class="inp4" type="password" placeholder="password">
@@ -33,22 +39,44 @@
                 </div>
             </div>
         </section>
-        <!-- reg-log end -->
+        <!-- log end-->
 
-        
+        <!-- car -->
+        <section class="car">
+            <div class="container car__container">
+                <div class="car__info">
+                    <p>Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг
+                        паливного
+                        баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
+                    </p>
+                    <ul>
+                        <li>
+                            Метод, який виводить на екран інформацію про автомобіль.
+                        </li>
+                        <li>
+                            Додавання ім’я водія у список
+                        </li>
+                        <li>
+                            Перевірка водія на наявність його ім’я у списку
+                        </li>
+                        <li>
+                            Підрахунок необхідного часу та кількості палива для подолання переданої відстані з середньою
+                            швидкістю. Враховуй, що через кожні 4 години дороги водієві необхідно робити перерву на 1 годину. 
+                        </li>
+                    </ul>
 
-        <div class="car-info">
-            <p>Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску, середня швидкість, обсяг паливного
-                баку, середня витрата палива на 100 км., водії), і наступні методи для роботи з цим об'єктом:
-                Метод, який виводить на екран інформацію про автомобіль.
-                Додавання ім’я водія у список
-                Перевірка водія на наявність його ім’я у списку
-                Підрахунок необхідного часу та кількості палива для подолання переданої відстані з середньою швидкістю.
-            </p>
-            <input class="inp5" type="number" placeholder="distance">
-            <button class="btn1">Result</button>
-            <div class="out4"></div>
-        </div>
+                    <button class="btn2">Show info</button>
+                    <div class="out5"></div>
+
+                    <input class="inp5" type="number" placeholder="distance">
+                    <button class="btn1">Result</button>
+                    <div class="out4"></div>
+                </div>
+            </div>
+        </section>
+        <!-- car end-->
+
+
     </main>
 </div>
 <script>
@@ -102,12 +130,18 @@
 
         for (let i = 0; i < users.length; i++) {
             if (inp3.value == users[i].login && inp4.value == users[i].password) {
+                inp3.value = ''
+                inp4.value = ''
                 out2.innerHTML = '<b style="color: green"> Ви ввійшли в систему </b>'
             }
             else if (inp3.value == '' && inp4.value == '') {
+                inp3.value = ''
+                inp4.value = ''
                 out2.innerHTML = `<b style="color: red"> Заповніть всі поля </b>`
             }
             else {
+                inp3.value = ''
+                inp4.value = ''
                 out2.innerHTML = `<b style="color: red"> Невірний логін або пароль </b>`
             }
         }
@@ -118,14 +152,22 @@
 
 
     const auto = {
-        model: 'MersedesS-class',
+        model: 'Mersedes S-class',
         yearOfIssue: '2022',
         averageSpeed: '170',
         theVolumeOfTheFuelTank: '80',
         averageFuelConsumptionPer100Km: '3',
         drivers: {
             man: 'Yuriy',
-            woman: 'Viktoria'
+            woman: 'Viktoria',
+        },
+        info: function () {
+            return `Model is: ${this.model} <br>
+            Year of issue is: ${this.yearOfIssue} <br>
+            Avarage speed is: ${this.averageSpeed} <br>
+            The volume of the fuel tank is: ${this.theVolumeOfTheFuelTank} <br>
+            Average fuel consumption per 100 km is: ${this.averageFuelConsumptionPer100Km}
+            ` 
         }
     }
 
@@ -135,6 +177,12 @@
     let inp5 = document.querySelector('.inp5');
     let btn1 = document.querySelector('.btn1');
     let out4 = document.querySelector('.out4');
+    let btn2 = document.querySelector('.btn2');
+    let out5 = document.querySelector('.out5');
+
+    btn2.onclick = () => {
+        out5.innerHTML = auto.info ();
+    }
 
     function findFuelConsumtion() {
         return Math.ceil((inp5.value * auto.averageFuelConsumptionPer100Km) / auto.standardConsumtion);
@@ -150,7 +198,7 @@
     }
 
     btn1.onclick = () => {
-        out4.innerHTML = `Для подолання відстані в ${inp5.value} км., з середньою швидкістю 170 км/год, Вам необхідно заправити авто на  ${findFuelConsumtion()} л. <br>
+        out4.innerHTML += `Для подолання відстані в ${inp5.value} км., з середньою швидкістю 170 км/год, Вам необхідно заправити авто на  ${findFuelConsumtion()} л. <br>
        На це Вам знадобиться ${findTimeOfTrip()} год.; <br>
        Якщо Ви будете відпочивати кожні 4 години, то для подолання заданої відстані в ${inp5.value} км., Вам знадобиться ${rest()} год.`;
     }
