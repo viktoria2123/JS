@@ -10,11 +10,14 @@ function showArr(domElem, arr) {
 }
 
 let d1 = [33, 'best', 66, 'best'];
+let i1 = document.querySelector('.i-1')
 
 function f1() {
     /**
      * ваш код здесь
      */
+
+    d1.push(i1.value);
     showArr('.out-1', d1);
 }
 
@@ -25,7 +28,7 @@ document.querySelector('.b-1').onclick = f1;
 // функция выполняется при нажатии кнопки b-2
 
 function f2() {
-
+    d1.pop();
     showArr('.out-2', d1);
 }
 
@@ -36,6 +39,7 @@ document.querySelector('.b-2').onclick = f2;
 // функция выполняется при нажатии кнопки b-3
 
 function f3() {
+    d1.shift();
 
     showArr('.out-3', d1);
 }
@@ -46,8 +50,9 @@ document.querySelector('.b-3').onclick = f3;
 // Напишите функцию f4, которая применяет метод push к массиву d1, данные для массива берите из i-4, а затем выводит его (showArr) в .out-4
 // функция выполняется при нажатии кнопки b-4
 
-
+let i4 = document.querySelector('.i-4')
 function f4() {
+    d1.push(i4.value)
 
     showArr('.out-4', d1);
 }
@@ -57,9 +62,9 @@ document.querySelector('.b-4').onclick = f4;
 // Task 5
 // Напишите функцию f5, которая применяет метод unshift к массиву d1, данные для массива берите из i-5, а затем выводит его (showArr) в .out-5
 // функция выполняется при нажатии кнопки b-5
-
+let i5 = document.querySelector('.i-5')
 function f5() {
-
+    d1.unshift(i5.value);
     showArr('.out-5', d1);
 }
 
@@ -72,9 +77,10 @@ document.querySelector('.b-5').onclick = f5;
 // Вывод в out-6
 
 let d6 = ['test', 5, 12];
-
+let i6 = document.querySelector('.i-6')
+let out6 = document.querySelector('.out-6')
 function f6() {
-
+    out6.innerHTML = d6[d6.length - 1 + i6.value];
     showArr('.out-6', d6);
 }
 
@@ -134,7 +140,7 @@ document.querySelector('.b-9').onclick = f9;
 let d10 = [3, 14, 15, 92, 6];
 
 function f10() {
-
+    d10.reverse();
     showArr('.out-10', d10);
 }
 
@@ -148,9 +154,13 @@ document.querySelector('.b-10').onclick = f10;
 // Вывод в out-11
 
 let d11 = [2, 3, 4, 5, 6, 7];
+let i11 = document.querySelector('.i-11')
 
 function f11() {
-
+// d11.indexOf(parseInt(+i11.value));
+let finde1 = d11.find((item, index) => {
+    return i11.value
+})
 }
 
 document.querySelector('.b-11').onclick = f11;
