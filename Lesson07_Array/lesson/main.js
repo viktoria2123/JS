@@ -22,8 +22,8 @@ const arr1 = [
     'Sasha 4',
 ];
 
-console.log(arr1[0]);
-console.log(arr1[arr1.length - 1]);
+console.log(arr1[0]); //Знаходимо 1-й елемент
+console.log(arr1[arr1.length - 1]); // Знаходимо останній елемент
 
 //arr1.push("Sasha 5") // Додаємо єлемент в кінець
 //arr1.unshift("Sasha -1") // Додаємо єлемент в начало
