@@ -29,9 +29,9 @@
         <h3>Сортування</h3>
 
         <select class="sel" name="" id="">
-            <option value="">Більше чи є 18</option>
-            <option value="">Меньше 18</option>
-            <option value="">Всі, кому за 40</option>
+            <option value="Більше чи є 18">Більше чи є 18</option>
+            <option value="Меньше 18">Меньше 18</option>
+            <option value="Всі, кому за 40">Всі, кому за 40</option>
         </select>
 
         <button class="btn3">show</button>
@@ -41,9 +41,9 @@
     <section>
         <h3>Пошук юзера</h3>
         <p>не враховувати великі і маленькі букви "A" "a"</p>
-        <input type="text">
+        <input class="inp2" type="text">
 
-        <button class="btn4">show</button>
+        <button class="btn4">Show</button>
         <div class="out4">0</div>
     </section>
 
@@ -51,6 +51,7 @@
 
         let inp = document.querySelector('.inp')
         let inp1 = document.querySelector('.inp1')
+        let inp2 = document.querySelector('.inp2')
         let out = document.querySelector('.out');
         let out2 = document.querySelector('.out2');
         let btn2 = document.querySelector('.btn2');
@@ -89,6 +90,7 @@
         }
 
         document.querySelector('.btn3').onclick = () => {
+            document.querySelector('.out3').innerHTML = '';
             switch (select.value) {
                 case 'Більше чи є 18': {
                     users.map((i) => {
@@ -123,13 +125,22 @@
             }
         }
 
-//         document.querySelector('.btn3').onclick = () => {
-//         let find = users.filter((item, index) => {
-//             return item.name;
-//             document.querySelector('.out4').innerHTML += 
-//         })
-
-// }
+        document.querySelector('.btn4').onclick = () => {
+            document.querySelector('.out4').innerHTML = '';
+            let finde1 = users.find((item, index) => {
+                users.map((i) => {
+                if(inp2.value == i.name) {
+                //    return i.name;
+                   document.querySelector('.out4').innerHTML += `
+                <h2>Привіт, ${i.name} =)) </h2> 
+                `;
+                }
+                else {
+                    document.querySelector('.out4').innerHTML = `Юзер не знайдений`;
+                }
+                })
+            })
+        }
 
     </script>
 </body>
