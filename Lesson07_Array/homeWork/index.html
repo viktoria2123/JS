@@ -10,6 +10,7 @@
 </head>
 
 <body>
+     
     <div class="wrapper">
         <main class="hw">
             <!-- valid -->
@@ -54,7 +55,7 @@
                 <div class="container find__container">
                     <h3>Пошук юзера</h3>
                     <p>Hе враховувати великі і маленькі букви "A" "a"</p>
-                    <input class="inp2" type="text">
+                    <input class="inp2" type="text" placeholder="login">
 
                     <button class="btn4">Show</button>
                     <div class="out4">0</div>
@@ -156,7 +157,9 @@
                 `;
                     }
                     else {
+                        document.querySelector('.out4').innerHTML = '';
                         document.querySelector('.out4').innerHTML = `Юзер не знайдений`;
+                       
                     }
                 })
             })
