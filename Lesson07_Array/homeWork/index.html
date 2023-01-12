@@ -150,7 +150,7 @@
             let finde1 = users.find((item, index) => {
                 document.querySelector('.out4').innerHTML = '';
                 users.map((i) => {
-                    if (inp2.value == i.name) {
+                    if (inp2.value.toLowerCase() == i.name.toLowerCase()) {
                         //    return i.name;
                         document.querySelector('.out4').innerHTML += `
                 <h2>Привіт, ${i.name} =)) </h2> 
