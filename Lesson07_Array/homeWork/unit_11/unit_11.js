@@ -157,10 +157,10 @@ let d11 = [2, 3, 4, 5, 6, 7];
 let i11 = document.querySelector('.i-11')
 
 function f11() {
-// d11.indexOf(parseInt(+i11.value));
-let finde1 = d11.find((item, index) => {
-    return i11.value
-})
+    // d11.indexOf(parseInt(+i11.value));
+    let finde1 = d11.find((item, index) => {
+        return i11.value
+    })
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -239,7 +239,7 @@ let d161 = [5, 6, 7, 8, 9];
 let d162 = [23, 24, 56, 87];
 
 function f16() {
-
+    let d16 = d161.concat(d162)
     showArr('.out-16', d16);
 }
 
@@ -270,9 +270,11 @@ document.querySelector('.b-17').onclick = f17;
 // Вывод в out-18
 
 let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
-
+let i18 = document.querySelector('.i-18');
 function f18() {
+    d18.includes(i18.value);
 
+    showArr('.out-18', d18);
 }
 
 document.querySelector('.b-18').onclick = f18;

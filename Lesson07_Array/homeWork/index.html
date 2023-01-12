@@ -6,46 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <ol>
-        <li>
-            Валідація
-        </li>
-    </ol>
-    <input class="inp" type="text">
-    <input class="inp1" type="number">
-    <button class="btn">add</button>
+    <div class="wrapper">
+        <main class="hw">
+            <!-- valid -->
+            <section class="valid">
+                <div class="container valid__container">
+                    <h3>
+                        Валідація
+                    </h3>
+                    <input class="inp" type="text" placeholder="login">
+                    <input class="inp1" type="number" placeholder="age">
+                    <button class="btn">Add</button>
 
 
-    <button class="btn2">Show all</button>
-    <button class="delete">delete</button>
-    <div class="out">---</div>
-    <div class="counter"></div>
-    <div class="out2"></div>
+                    <button class="btn2">Show all</button>
+                    <button class="delete">Delete</button>
+                    <div class="out">---</div>
+                    <div class="counter"></div>
+                    <div class="out2"></div>
+                </div>
+            </section>
+            <!-- valid end-->
 
-    <section>
-        <h3>Сортування</h3>
+            <!-- sort -->
+            <section class="sort">
+                <div class="container sort__container">
+                    <h3>Сортування</h3>
 
-        <select class="sel" name="" id="">
-            <option value="Більше чи є 18">Більше чи є 18</option>
-            <option value="Меньше 18">Меньше 18</option>
-            <option value="Всі, кому за 40">Всі, кому за 40</option>
-        </select>
+                    <select class="sel" name="" id="">
+                        <option value="Більше чи є 18">Більше чи є 18</option>
+                        <option value="Меньше 18">Меньше 18</option>
+                        <option value="Всі, кому за 40">Всі, кому за 40</option>
+                    </select>
 
-        <button class="btn3">show</button>
-        <div class="out3">0</div>
-    </section>
+                    <button class="btn3">show</button>
+                    <div class="out3">0</div>
+                </div>
+            </section>
+            <!-- sort end-->
 
-    <section>
-        <h3>Пошук юзера</h3>
-        <p>не враховувати великі і маленькі букви "A" "a"</p>
-        <input class="inp2" type="text">
+            <!-- find -->
+            <section class="find">
+                <div class="container find__container">
+                    <h3>Пошук юзера</h3>
+                    <p>Hе враховувати великі і маленькі букви "A" "a"</p>
+                    <input class="inp2" type="text">
 
-        <button class="btn4">Show</button>
-        <div class="out4">0</div>
-    </section>
+                    <button class="btn4">Show</button>
+                    <div class="out4">0</div>
+                </div>
+            </section>
+            <!-- find end-->
+        </main>
+
+    </div>
+
 
     <script>
 
@@ -126,18 +145,19 @@
         }
 
         document.querySelector('.btn4').onclick = () => {
-            document.querySelector('.out4').innerHTML = '';
+
             let finde1 = users.find((item, index) => {
+                document.querySelector('.out4').innerHTML = '';
                 users.map((i) => {
-                if(inp2.value == i.name) {
-                //    return i.name;
-                   document.querySelector('.out4').innerHTML += `
+                    if (inp2.value == i.name) {
+                        //    return i.name;
+                        document.querySelector('.out4').innerHTML += `
                 <h2>Привіт, ${i.name} =)) </h2> 
                 `;
-                }
-                else {
-                    document.querySelector('.out4').innerHTML = `Юзер не знайдений`;
-                }
+                    }
+                    else {
+                        document.querySelector('.out4').innerHTML = `Юзер не знайдений`;
+                    }
                 })
             })
         }
