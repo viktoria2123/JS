@@ -63,18 +63,21 @@
 
     <div class="pets">
         <nav>
-            <div class="serch"><input type="text"><button>search</button></div>
-            <div class="select">
-                <select name="" id="">
-                    <option value="Другая">Другая</option>
-                    <option value="Скоттиш фолд">Скоттиш фолд</option>
-                    <option value="Экзотическая короткошерстная">Экзотическая короткошерстная</option>
-                </select>
-                <button>search</button>
-            </div>
             <div class="serch">
-                <button>Від дешевих</button>
-                <button>Від дорогого</button>
+                <input class="inp" type="text">
+                <button class="btn">search</button>
+            </div>
+
+            <select class="select" name="" id="">
+                <option value="Другая">Другая</option>
+                <option value="Скоттиш фолд">Скоттиш фолд</option>
+                <option value="Экзотическая короткошерстная">Экзотическая короткошерстная</option>
+            </select>
+            <button class="btn1">search</button>
+
+            <div class="serch">
+                <button class="btn-low">Від дешевих</button>
+                <button class="btn-hight">Від дорогого</button>
             </div>
         </nav>
         <div class="pets__container">
@@ -138,9 +141,11 @@
         //     </div>
 
 
-        
 
-        const out = document.querySelector('.pets__container')
+
+        const out = document.querySelector('.pets__container');
+        let inp = document.querySelector('.inp');
+        let select = document.querySelector('.select');
 
         //  pets.map()
         // 1-Item, 2-index, 3-array 
@@ -158,6 +163,70 @@
             </div>
             `
         })
+
+        document.querySelector('.btn1').onclick = () => {
+            out.innerHTML = '';
+            switch (select.value) {
+                case 'Другая': {
+                    pets.map((pet) => {
+                        let finde = pets.find((item, index) => {
+                            return index == [2];
+                        })
+                        if (select.value == 'Другая') {
+                            out.innerHTML = finde;
+                        }
+                    })
+                    break;
+                }
+                // case 'Меньше 18': {
+                //     users.map((i) => {
+                //         if (i.age < 18) {
+                //             document.querySelector('.out3').innerHTML += `
+                // <h2>${i.name} </h2> 
+                // `
+                //         }
+                //     })
+                //     break;
+                // }
+                // case 'Всі, кому за 40': {
+                //     users.map((i) => {
+                //         if (i.age > 40) {
+                //             document.querySelector('.out3').innerHTML += `
+                // <h2>${i.name} </h2> 
+                // `
+                //         }
+                //     })
+                //     break;
+                // }
+            }
+        }
+
+
+
+        document.querySelector('.btn').onclick = () => {
+
+            let finde1 = pets.find((item, index) => {
+                out.innerHTML = '';
+                pets.map((pet) => {
+                    if (inp.value.toLowerCase() == pet.name.toLowerCase()) {
+                        //    return pet.name;
+                        out.innerHTML += `pet`;
+                    }
+                    else {
+                        out.innerHTML = '';
+                        out.innerHTML = `Кіт не знайдений`;
+
+                    }
+                })
+            })
+        }
+
+
+        document.querySelector('.btn-low').onclick = () => {
+            numbers.sort(function (a, b) {
+                return a - b;
+            });
+        }
 
     </script>
 </body>
