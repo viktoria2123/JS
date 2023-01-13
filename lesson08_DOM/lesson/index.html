@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red {
+            background-color: brown;
+        }
+
+        .button {
+            width: 200px;
+            background-color: aquamarine;
+            padding: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(12, 168, 116);
+        }
+
+        .content {
+            width: 200px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.8s;
+        }
+
+        .active {
+            background-color: rgb(12, 168, 116);
+        }
+
+        .active+.content {
+            max-height: 1500px;
+            transition: max-height 0.8s;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="button active">button 1</button>
+    <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempore illo dolorem laborum saepe doloribus.
+        Incidunt nulla reprehenderit, reiciendis cum, voluptatem ad ducimus ipsam accusamus, autem ut nesciunt fugiat
+        placeat provident dolores error natus consectetur vel ab laboriosam. Dolores quidem nobis facilis, corporis
+        fugiat illo officia omnis in sed quibusdam!
+    </div>
+    <button class="button">button 2</button>
+    <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempore illo dolorem laborum saepe doloribus.
+        Incidunt nulla reprehenderit, reiciendis cum, voluptatem ad ducimus ipsam accusamus, autem ut nesciunt fugiat
+        placeat provident dolores error natus consectetur vel ab laboriosam. Dolores quidem nobis facilis, corporis
+        fugiat illo officia omnis in sed quibusdam!
+    </div>
+    <button class="button">button 3</button>
+    <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempore illo dolorem laborum saepe doloribus.
+        Incidunt nulla reprehenderit, reiciendis cum, voluptatem ad ducimus ipsam accusamus, autem ut nesciunt fugiat
+        placeat provident dolores error natus consectetur vel ab laboriosam. Dolores quidem nobis facilis, corporis
+        fugiat illo officia omnis in sed quibusdam!
+    </div>
+    <button class="button">button 4</button>
+    <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempore illo dolorem laborum saepe doloribus.
+        Incidunt nulla reprehenderit, reiciendis cum, voluptatem ad ducimus ipsam accusamus, autem ut nesciunt fugiat
+        placeat provident dolores error natus consectetur vel ab laboriosam. Dolores quidem nobis facilis, corporis
+        fugiat illo officia omnis in sed quibusdam!
+    </div>
+    <button class="button">button 5</button>
+    <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempore illo dolorem laborum saepe doloribus.
+        Incidunt nulla reprehenderit, reiciendis cum, voluptatem ad ducimus ipsam accusamus, autem ut nesciunt fugiat
+        placeat provident dolores error natus consectetur vel ab laboriosam. Dolores quidem nobis facilis, corporis
+        fugiat illo officia omnis in sed quibusdam!
+    </div>
+
+
+
+    <h2>Data</h2>
+    <img class="img" src="" alt="" data="sasha" data-speed="2" style="">
+    <script src="./main.js"></script>
+</body>
+
+</html>
