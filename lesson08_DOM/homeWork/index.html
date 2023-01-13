@@ -168,36 +168,67 @@
             out.innerHTML = '';
             switch (select.value) {
                 case 'Другая': {
-                    pets.map((pet) => {
-                        let finde = pets.find((item, index) => {
-                            return index == [2];
-                        })
-                        if (select.value == 'Другая') {
-                            out.innerHTML = finde;
-                        }
-                    })
+                    out.innerHTML += "";
+                    out.innerHTML +=
+                        `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[2].name}</h3>
+            <img class="pets__img" src=${pets[2].url} alt="">
+            <div class="pets__price">${pets[2].price}</div>
+            <p class="pets__description">${pets[2].description}</p>
+            <h5 class="pets__loc">${pets[2].location}</h5>
+            </div>
+            `
                     break;
                 }
-                // case 'Меньше 18': {
-                //     users.map((i) => {
-                //         if (i.age < 18) {
-                //             document.querySelector('.out3').innerHTML += `
-                // <h2>${i.name} </h2> 
-                // `
-                //         }
-                //     })
-                //     break;
-                // }
-                // case 'Всі, кому за 40': {
-                //     users.map((i) => {
-                //         if (i.age > 40) {
-                //             document.querySelector('.out3').innerHTML += `
-                // <h2>${i.name} </h2> 
-                // `
-                //         }
-                //     })
-                //     break;
-                // }
+
+                case 'Скоттиш фолд': {
+                    out.innerHTML += "";
+                    out.innerHTML +=
+                        `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[0].name}</h3>
+            <img class="pets__img" src=${pets[0].url} alt="">
+            <div class="pets__price">${pets[0].price}</div>
+            <p class="pets__description">${pets[0].description}</p>
+            <h5 class="pets__loc">${pets[0].location}</h5>
+            </div>
+
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[1].name}</h3>
+            <img class="pets__img" src=${pets[1].url} alt="">
+            <div class="pets__price">${pets[1].price}</div>
+            p class="pets__description">${pets[1].description}</p>
+            <h5 class="pets__loc">${pets[1].location}</h5>
+            </div>
+
+            `
+                    break;
+                }
+
+                case 'Экзотическая короткошерстная': {
+                    out.innerHTML += "";
+                    out.innerHTML +=
+                        `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[3].name}</h3>
+            <img class="pets__img" src=${pets[3].url} alt="">
+            <div class="pets__price">${pets[3].price}</div>
+            <p class="pets__description">${pets[3].description}</p>
+            <h5 class="pets__loc">${pets[3].location}</h5>
+            </div>
+
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[4].name}</h3>
+            <img class="pets__img" src=${pets[4].url} alt="">
+            <div class="pets__price">${pets[4].price}</div>
+            <p class="pets__description">${pets[4].description}</p>
+            <h5 class="pets__loc">${pets[4].location}</h5>
+            </div>
+
+            `
+                    break;
+                }
             }
         }
 
@@ -205,27 +236,82 @@
 
         document.querySelector('.btn').onclick = () => {
 
-            let finde1 = pets.find((item, index) => {
-                out.innerHTML = '';
-                pets.map((pet) => {
-                    if (inp.value.toLowerCase() == pet.name.toLowerCase()) {
-                        //    return pet.name;
-                        out.innerHTML += `pet`;
-                    }
-                    else {
-                        out.innerHTML = '';
-                        out.innerHTML = `Кіт не знайдений`;
 
-                    }
-                })
-            })
+            out.innerHTML = '';
+
+            if (inp.value == 'Другая') {
+                //    return pet.name;
+                out.innerHTML += `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[2].name}</h3>
+            <img class="pets__img" src=${pets[2].url} alt="">
+            <div class="pets__price">${pets[2].price}</div>
+            <p class="pets__description">${pets[2].description}</p>
+            <h5 class="pets__loc">${pets[2].location}</h5>
+            </div>
+            `;
+            }
+
+            else if (inp.value == 'Скоттиш фолд') {
+                out.innerHTML +=  `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[0].name}</h3>
+            <img class="pets__img" src=${pets[0].url} alt="">
+            <div class="pets__price">${pets[0].price}</div>
+            <p class="pets__description">${pets[0].description}</p>
+            <h5 class="pets__loc">${pets[0].location}</h5>
+            </div>
+
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[1].name}</h3>
+            <img class="pets__img" src=${pets[1].url} alt="">
+            <div class="pets__price">${pets[1].price}</div>
+            p class="pets__description">${pets[1].description}</p>
+            <h5 class="pets__loc">${pets[1].location}</h5>
+            </div>
+
+            `
+            }
+
+            else if (inp.value == 'Экзотическая короткошерстная') {
+                out.innerHTML +=   `
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[3].name}</h3>
+            <img class="pets__img" src=${pets[3].url} alt="">
+            <div class="pets__price">${pets[3].price}</div>
+            <p class="pets__description">${pets[3].description}</p>
+            <h5 class="pets__loc">${pets[3].location}</h5>
+            </div>
+
+            <div class="pets__item"> 
+              <h3 class="pets__name">${pets[4].name}</h3>
+            <img class="pets__img" src=${pets[4].url} alt="">
+            <div class="pets__price">${pets[4].price}</div>
+            <p class="pets__description">${pets[4].description}</p>
+            <h5 class="pets__loc">${pets[4].location}</h5>
+            </div>
+
+            `
+            }
+
+            
+            else {
+                out.innerHTML = '';
+                out.innerHTML = `Кіт не знайдений`;
+
+            }
+
+
         }
 
 
         document.querySelector('.btn-low').onclick = () => {
-            numbers.sort(function (a, b) {
-                return a - b;
-            });
+            // pets.sort(function (a, b) {
+            //     return a - b;
+            // });
+
+            pets.sort((a, b) => b - a);
+            out.innerHTML = `${pets}`;
         }
 
     </script>
