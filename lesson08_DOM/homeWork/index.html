@@ -55,6 +55,29 @@
             gap: 16px;
             margin-bottom: 16px;
         }
+
+        button {
+            cursor: pointer;
+            outline: none;
+            border: none;
+            padding: 5px;
+            background-color: #ffae19;
+            border-radius: 10px;
+            position: relative;
+            text-transform: uppercase;
+            box-shadow: 0 6px #ffa500;
+            color: black;
+        }
+
+        button:hover {
+            box-shadow: 0 4px #ffa500;
+            top: 2px;
+        }
+
+        button:active {
+            box-shadow: none;
+            top: 6px;
+        }
     </style>
 </head>
 
@@ -253,7 +276,7 @@
             }
 
             else if (inp.value == 'Скоттиш фолд') {
-                out.innerHTML +=  `
+                out.innerHTML += `
             <div class="pets__item"> 
               <h3 class="pets__name">${pets[0].name}</h3>
             <img class="pets__img" src=${pets[0].url} alt="">
@@ -274,7 +297,7 @@
             }
 
             else if (inp.value == 'Экзотическая короткошерстная') {
-                out.innerHTML +=   `
+                out.innerHTML += `
             <div class="pets__item"> 
               <h3 class="pets__name">${pets[3].name}</h3>
             <img class="pets__img" src=${pets[3].url} alt="">
@@ -294,7 +317,7 @@
             `
             }
 
-            
+
             else {
                 out.innerHTML = '';
                 out.innerHTML = `Кіт не знайдений`;
@@ -306,13 +329,42 @@
 
 
         document.querySelector('.btn-low').onclick = () => {
-            // pets.sort(function (a, b) {
-            //     return a - b;
-            // });
+            const items = pets.sort(
+                (a, b) => parseFloat(a.price) - parseFloat(b.price)
+            );
+            out.innerHTML = "";
+            items.map((pet) => {
+                out.innerHTML += `
+                      <div class="pets__item">
+                        <h3 class="pets__name">${pet.name}</h3>
+                        <img class="pets__img" src="${pet.url}" alt="">
+                        <div class="pets__price">${pet.price}</div>
+                        <p class="pets__description">${pet.description}</p>
+                        <h5 class="pets__loc">${pet.location}</h5>
+                      </div>
+                      `;
+            });
+        };
 
-            pets.sort((a, b) => b - a);
-            out.innerHTML = `${pets}`;
-        }
+
+        document.querySelector('.btn-hight').onclick = () => {
+            const items = pets.sort(
+                (a, b) => parseFloat(b.price) - parseFloat(a.price)
+            );
+            out.innerHTML = "";
+            items.map((pet) => {
+                out.innerHTML += `
+                      <div class="pets__item">
+                        <h3 class="pets__name">${pet.name}</h3>
+                        <img class="pets__img" src="${pet.url}" alt="">
+                        <div class="pets__price">${pet.price}</div>
+                        <p class="pets__description">${pet.description}</p>
+                        <h5 class="pets__loc">${pet.location}</h5>
+                      </div>
+                      `;
+            });
+        };
+
 
     </script>
 </body>
