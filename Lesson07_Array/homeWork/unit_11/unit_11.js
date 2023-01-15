@@ -80,7 +80,8 @@ let d6 = ['test', 5, 12];
 let i6 = document.querySelector('.i-6')
 let out6 = document.querySelector('.out-6')
 function f6() {
-    out6.innerHTML = d6[d6.length - 1 + i6.value];
+    let ar = document.querySelector('.i-6').value;
+    d6[d6.length] = ar;
     showArr('.out-6', d6);
 }
 
@@ -96,6 +97,9 @@ let d7 = ['china', 'india', 'brazil', 'japan', 'egypt'];
 
 function f7() {
 
+    if (d7.length != 0) {
+        d7.length = d7.length - 1;
+    }
     showArr('.out-7', d7);
 }
 
@@ -110,7 +114,11 @@ document.querySelector('.b-7').onclick = f7;
 let d8 = [2, '4', 12, 67, 'hello'];
 
 function f8() {
-
+    let ar = document.querySelector('.i-8').value;
+    for (let i = d8.length - 1; i >= 0; --i) {
+        d8[i + 1] = d8[i];
+    }
+    d8[0] = ar;
     showArr('.out-8', d8);
 }
 
@@ -125,7 +133,11 @@ document.querySelector('.b-8').onclick = f8;
 let d9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-
+    let res = [];
+    for (let i = 1; i < d9.length; i++) {
+        res[res.length] = d9[i];
+    }
+    d9 = res;
     showArr('.out-9', d9);
 }
 
@@ -154,13 +166,20 @@ document.querySelector('.b-10').onclick = f10;
 // Вывод в out-11
 
 let d11 = [2, 3, 4, 5, 6, 7];
-let i11 = document.querySelector('.i-11')
+let i11 = +document.querySelector('.i-11').value;
 
 function f11() {
-    // d11.indexOf(parseInt(+i11.value));
-    let finde1 = d11.find((item, index) => {
-        return i11.value
-    })
+    let ar = +document.querySelector('.i-11').value;
+    let out = "";
+    for (let i = 0; i < d11.length; i++) {
+        if (d11.indexOf(ar) >= 0) {
+            out = d11.indexOf(ar)
+        } else {
+            out = d11.indexOf(ar);
+        }
+
+    }
+    document.querySelector('.out-11').innerHTML = out;
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -175,7 +194,14 @@ document.querySelector('.b-11').onclick = f11;
 let d12 = [6, 62, 60, 70, 1, 5];
 
 function f12() {
-
+    let out = -1;
+    let ar = +document.querySelector('.i-12').value;
+    for (let i = 0; i < d12.length; i++) {
+        if (d12[i] == ar) {
+            out = i;
+        }
+    }
+    document.querySelector('.out-12').innerHTML = out;
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -190,7 +216,13 @@ document.querySelector('.b-12').onclick = f12;
 let d13 = [6, 0, 22, 1, 4, 76];
 
 function f13() {
+    let arr = [];
 
+    for (let i = d13.length - 1; i >= 0; i--) {
+        arr.push(d13[i]);
+    }
+
+    d13 = arr;
     showArr('.out-13', d13);
 }
 
@@ -206,7 +238,10 @@ document.querySelector('.b-13').onclick = f13;
 let d14 = [];
 
 function f14() {
-
+    let ar = +document.querySelector('.i-14').value;
+    for (let i = 0; i < ar; i++) {
+        d14[d14.length] = 1;
+    }
     showArr('.out-14', d14);
 }
 
@@ -222,7 +257,17 @@ let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
 
-
+    let ar = +document.querySelector('.i-15').value;
+    let res = true;
+    for (let i = 0; i <= d15.length; i++) {
+        if (d15[i] == ar) {
+            res = false
+            break
+        }
+    }
+    if (res) {
+        d15.push(ar)
+    }
     showArr('.out-15', d15);
 }
 
@@ -256,7 +301,10 @@ let d171 = ['a', 'b', 'c', 'd'];
 let d172 = [1, 2, 3, 4, 5];
 
 function f17() {
-
+    for (let i = 0; i < d172.length; i++) {
+        d171[d171.length] = d172[i]
+    }
+    d17 = d171
     showArr('.out-17', d17);
 }
 
@@ -272,9 +320,14 @@ document.querySelector('.b-17').onclick = f17;
 let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
 let i18 = document.querySelector('.i-18');
 function f18() {
-    d18.includes(i18.value);
-
-    showArr('.out-18', d18);
+    let ar = document.querySelector('.i-18').value;
+    let out = "";
+    if (d18.includes(ar)) {
+        out = d18.includes(ar)
+    } else {
+        out = d18.includes(ar)
+    }
+    document.querySelector('.out-18').innerHTML = out;
 }
 
 document.querySelector('.b-18').onclick = f18;
@@ -290,7 +343,13 @@ let d19 = ['Your', 'payment', 'method', 'will', 'automatically', 'be', 'charged'
 let maxString = '';
 
 function f19() {
+    for (let i = 0; i < d19.length; i++) {
+        if (maxString.length < d19[i].length) {
+            maxString = d19[i]
+        }
+    }
 
+    document.querySelector('.out-19').innerHTML = maxString
 }
 
 document.querySelector('.b-19').onclick = f19;
@@ -304,7 +363,9 @@ document.querySelector('.b-19').onclick = f19;
 let d20 = [4, 5, 6, 7, 8, 9, 10];
 
 function f20() {
-
+    let out = "";
+    out = d20.join('');
+    document.querySelector('.out-20').innerHTML = out;
 }
 
 document.querySelector('.b-20').onclick = f20;
