@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 1px solid;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="out"></div>
+    <div class="box"></div>
+
+
+    <script>
+        let out = document.querySelector('.out')
+        let box = document.querySelector('.box')
+
+        function keyPress(event) {
+            console.log(event);
+            out.innerHTML += event.key
+        }
+        let a = 0;
+        function move(event) {
+            console.log(event);
+
+            if (event.code == "ArrowRight") {
+                box.style.left = `${a = a + 10}px`
+            }
+        }
+        // document.addEventListener('keydown', keyPress)
+        document.addEventListener('keydown', move)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 1px solid;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="out"></div>
+    <div class="box"></div>
+
+
+    <script>
+
+        // Зробити рух вліво
+        // зробити так шоб квадратік не виходив зв рамки window
+        let out = document.querySelector('.out')
+        let box = document.querySelector('.box')
+
+
+        let a = 0;
+        function move(event) {
+            if (event.code == "ArrowRight" && Window.innerWidth!=0) {
+                box.style.left = `${a = a + 10}px`
+            }
+        }
+        function move2(event) {
+            if (event.code == "ArrowLeft" && Window.innerWidth!=0) {
+                box.style.right = `${a = a - 10}px`
+            }
+        }
+        // document.addEventListener('keydown', keyPress)
+        document.addEventListener('keydown', move);
+        document.addEventListener('keydown', move2);
+    </script>
+</body>
+
+</html>

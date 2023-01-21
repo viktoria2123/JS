@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select name="" id="">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+
+
+    <script>
+        // Вивести юзера
+        // Екстра вивести з select
+
+
+
+        for (let i = 0; i < 5; i++) {
+            fetch(`https://randomuser.me/api/`)
+                .then(data => data.json())
+                .then(data => {
+                    console.log(data);
+                    let { results } = data
+                    console.log(results[0].email);
+                })
+                .catch(err => console.log(err))
+        }
+    </script>
+</body>
+
+</html>

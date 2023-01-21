@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .section__item {
+            padding: 20px;
+            border: 1px solid;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="section">
+    </div>
+    <select name="" id="">
+        <option value="1">Серія 1</option>
+        <option value="2">Серія 2</option>
+        <option value="3">Серія 3</option>
+        <option value="4">Серія 4</option>
+        <option value="5">Серія 5</option>
+        <option value="6">Серія 6</option>
+        <option value="7">Серія 7</option>
+    </select>
+    <button>search</button>
+
+    <script>
+        //https://api.publicapis.org/entries
+        //https://rickandmortyapi.com/api/character/108
+        //http://api.tvmaze.com/search/shows?q=golden%20girls
+
+        let out = document.querySelector('.section')
+        let btn = document.querySelector('button')
+        let select = document.querySelector('select')
+
+        btn.addEventListener('click', () => {
+            fetch(`https://rickandmortyapi.com/api/character/${select.value}`)
+                .then(data => data.json())
+                .then(data => {
+                    console.log(data);
+                    out.innerHTML = `
+                <div class="section__item">
+                    <h3>Серія: ${data.name} </h3>
+                    <img src="${data.image}" alt="">
+                </div>
+                `
+                })
+                .catch(err => console.log(err))
+        })
+
+
+
+    </script>
+</body>
+
+</html>

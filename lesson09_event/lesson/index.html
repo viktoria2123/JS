@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapp">
+        <!-- <button class="button0">test 1</button> -->
+        <button class="button1">test 2</button>
+
+        <div class="box">
+            <h2>test</h2>
+            <button>Submit</button>
+        </div>
+        <div class="box">
+            <h2>test</h2>
+            <button>Submit</button>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio incidunt tempora repellendus tenetur
+            eligendi sit nemo. Aliquid enim sequi dolore amet exercitationem esse magnam expedita explicabo ut natus
+            est, nemo sapiente dolorem provident libero sunt, ab vitae minus deleniti deserunt alias quae debitis optio
+            omnis. Illo itaque nulla vitae?</p>
+
+    </div>
+
+    <script>
+
+        let btn = document.querySelector('.button0');
+        let btn1 = document.querySelector('.button1');
+        let div = document.querySelector('.div');
+        let wrapp = document.querySelector('.wrapp');
+
+        // old 
+        // btn.onclick = () => {
+        //     console.log('Test 1');
+        // }
+
+        // btn.onclick = () => {
+        //     console.log('Test 2');
+        // }
+
+        let option = {
+            'capture': true, // фаза при якій спрацюовуе Івент
+            'once': false, // Один раз
+            'passive': true, //
+        }
+
+        // new
+        // Подія / функція / options
+        btn1.addEventListener('click', () => {
+            console.log('Test 1');
+        })
+        btn1.addEventListener('click', () => {
+            console.log('Test 2');
+        })
+
+        btn1.addEventListener('click', (event) => {
+            console.log(event);
+        })
+
+        // Делегирование собития
+        wrapp.addEventListener('click', (event) => {
+            console.log(event.target);
+            if (event.target.closest('.box')) {
+                event.target.classList.toggle('active')
+            }
+        })
+
+
+        function btn2Click() {
+            console.log("Нажав");
+        }
+        function btn2Click2() {
+            console.log("Відпустив");
+        }
+
+        btn1.addEventListener('mousedown', btn2Click)
+        btn1.addEventListener('click', btn2Click2)
+
+
+        // Перевірка розміру єкрану
+
+        console.log(window.outerWidth);
+
+        function isMibile() {
+            if (window.outerWidth < 410) {
+                console.log('Це телефон');
+            } else {
+                console.log('Це десктоп');
+            }
+        }
+
+        addEventListener('resize', isMibile)
+
+
+        // скрол
+        let a1 = 0
+        addEventListener('scroll', () => {
+            console.log(a1++);
+        })
+
+
+
+
+
+
+        // Перевірка чи є єлемент
+
+        // Варіант 1
+        // if (btn) {
+        //     btn.onclick = () => {
+        //         console.log('Test 1');
+        //     }
+
+        //     btn.onclick = () => {
+        //         console.log('Test 2');
+        //     }
+        // }
+        // Варіант 2
+
+        // try {
+        //     btn.onclick = () => {
+        //         console.log('Test 1');
+        //     }
+
+        //     btn.onclick = () => {
+        //         console.log('Test 2');
+        //     }
+        // }
+        // catch {
+        //     console.log("Error");
+        // }
+
+
+
+    </script>
+</body>
+
+</html>

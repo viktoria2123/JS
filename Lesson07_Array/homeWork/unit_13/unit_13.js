@@ -9,7 +9,7 @@ function f1() {
         "five": 20
     };
     document.querySelector('.out-1').innerHTML = a1.two;
-    //return ...
+    return a1.two;
 }
 
 document.querySelector('.b-1').onclick = f1;
@@ -26,11 +26,12 @@ function f2() {
         "two": "mahai",
         "five": "hi"
     };
-
-    // return
+document.querySelector('.out-2').innerHTML = a2.five;
+    return a2.five;
 }
 
 document.querySelector('.b-2').onclick = () => {
+    
     document.querySelector('.out-2').innerHTML = f2();
 }
 
@@ -49,7 +50,8 @@ function f3() {
         "odd": "hi",
         "mix": "mix"
     };
-    // return
+    document.querySelector('.out-3').innerHTML = a3.five + ' ' + a3.odd;
+    return a3.five + ' ' + a3.odd;
 }
 
 document.querySelector('.b-3').onclick = () => {
@@ -71,7 +73,7 @@ let a4 = {
     "mix": "mix"
 };
 function f4() {
-
+    document.querySelector('.out-4').innerHTML = a4.one + ' ' a4.five + ' ' + a3.odd;
     // return out;
 }
 

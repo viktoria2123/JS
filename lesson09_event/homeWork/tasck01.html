@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="div">
+
+    </div>
+
+
+
+    <script>
+        // По другому кліку зупинити moveTest
+        // на масив обекті
+        let div = document.querySelector('.div')
+
+        function moveTest(event) {
+
+            let width = div.offsetWidth / 2;
+            let heigth = div.offsetHeight / 2;
+
+            div.style.transform = `translate(${event.clientX - width}px, ${event.clientY - heigth}px)`;
+        }
+
+        // 
+        // window.removeEventListener('mousemove', moveTest)
+        // div.addEventListener('click', () => {
+        //     window.addEventListener('mousemove', moveTest)
+        // })
+
+        div.addEventListener('mousedown', () => {
+            window.addEventListener('mousemove', moveTest)
+        })
+        div.addEventListener('mouseup', () => {
+            window.removeEventListener('mousemove', moveTest)
+        })
+    </script>
+</body>
+
+</html>
