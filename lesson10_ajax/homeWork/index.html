@@ -6,34 +6,175 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <div class="wrapper">
+        <select name="" id="">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <button>search</button>
+        <div class="section">
+        </div>
 
-    <select name="" id="">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-    </select>
-
-
+    </div>
     <script>
         // Вивести юзера
         // Екстра вивести з select
 
+        let out = document.querySelector('.section');
+        let btn = document.querySelector('button');
+        let select = document.querySelector('select');
+
+        // btn.addEventListener('click', () => {
+        //     fetch(`https://randomuser.me/api/`)
+        //         .then(data => data.json())
+        //         .then(data => {
+        //             console.log(data);
+        //             let { results } = data;
+        //             out.innerHTML = `
+        //         <div class="section__item">
+        //             <h3>title: ${results[0].name.title} </h3>
+        //             <h3>first name: ${results[0].name.first} </h3>
+        //             <h3>last name: ${results[0].name.last} </h3>
+        //             <h3>country: ${results[0].location.country} </h3>
+        //             <h3>city: ${results[0].location.city} </h3>
+        //             <h3>state: ${results[0].location.state} </h3>
+        //             <h3>phone: ${results[0].phone} </h3>
+        //             <h3>gender: ${results[0].gender} </h3>
+        //             <h3>email: ${results[0].email} </h3>
+        //             <h3>age: ${results[0].registered.age} </h3>
+        //             <img src="${results[0].picture.large}" alt="">
+
+        //         </div>
+        //         `
+        //         })
+        //         .catch(err => console.log(err))
+        // })
+
+        // btn.addEventListener('click', () => {
+        //     fetch(`https://randomuser.me/api/`)
+        //         .then(data => data.json())
+        //         .then(data => {
+        //             console.log(data);
+        //             let { results } = data;
+        //             out.innerHTML += "";
+        //             out.innerHTML += `
+        //         <div class="section__item">
+        //             <h2>User</h2>
+        //             <h3>title: ${results[0].name.title} </h3>
+        //             <h3>first name: ${results[0].name.first} </h3>
+        //             <h3>last name: ${results[0].name.last} </h3>
+        //             <h3>country: ${results[0].location.country} </h3>
+        //             <h3>city: ${results[0].location.city} </h3>
+        //             <h3>state: ${results[0].location.state} </h3>
+        //             <h3>phone: ${results[0].phone} </h3>
+        //             <h3>gender: ${results[0].gender} </h3>
+        //             <h3>email: ${results[0].email} </h3>
+        //             <h3>age: ${results[0].registered.age} </h3>
+        //             <img src="${results[0].picture.large}" alt="">
+        //         </div>
+        //         `
+        //         })
+        //         .catch(err => console.log(err))
+        // })
 
 
-        for (let i = 0; i < 5; i++) {
+
+        // for (let i = 0; i < 5; i++) {
+        //     btn.addEventListener('click', () => {
+        //         out.innerHTML += "";
+        //         fetch(`https://randomuser.me/api/`)
+        //             .then(data => data.json())
+        //             .then(data => {
+        //                 console.log(data);
+        //                 let { results } = data;
+
+        //                 out.innerHTML += `
+        //         <div class="section__item">
+        //             <h2>User</h2>
+        //             <h3>title: ${results[0].name.title} </h3>
+        //             <h3>first name: ${results[0].name.first} </h3>
+        //             <h3>last name: ${results[0].name.last} </h3>
+        //             <h3>country: ${results[0].location.country} </h3>
+        //             <h3>city: ${results[0].location.city} </h3>
+        //             <h3>state: ${results[0].location.state} </h3>
+        //             <h3>phone: ${results[0].phone} </h3>
+        //             <h3>gender: ${results[0].gender} </h3>
+        //             <h3>email: ${results[0].email} </h3>
+        //             <h3>age: ${results[0].registered.age} </h3>
+        //             <img src="${results[0].picture.large}" alt="">
+        //         </div>
+        //         `
+        //             })
+        //             .catch(err => console.log(err))
+        //     })
+        // }
+
+        function users(item) {
+            out.innerHTML += " ";
             fetch(`https://randomuser.me/api/`)
                 .then(data => data.json())
                 .then(data => {
                     console.log(data);
-                    let { results } = data
-                    console.log(results[0].email);
+                    let { results } = data;
+                    out.innerHTML += " ";
+                    out.innerHTML += `
+                <div class="section__item">
+                    <h2>User</h2>
+                    <h3>title: ${results[0].name.title} </h3>
+                    <h3>first name: ${results[0].name.first} </h3>
+                    <h3>last name: ${results[0].name.last} </h3>
+                    <h3>country: ${results[0].location.country} </h3>
+                    <h3>city: ${results[0].location.city} </h3>
+                    <h3>state: ${results[0].location.state} </h3>
+                    <h3>phone: ${results[0].phone} </h3>
+                    <h3>gender: ${results[0].gender} </h3>
+                    <h3>email: ${results[0].email} </h3>
+                    <h3>age: ${results[0].registered.age} </h3>
+                    <img src="${results[0].picture.large}" alt="">
+                </div>
+                `
+
                 })
                 .catch(err => console.log(err))
         }
+
+        btn.addEventListener('click', () => {
+            out.innerHTML += "";
+            switch (select.value) {
+                case '5': {
+                    for (let i = 0; i < 5; i++) {
+                        users ();
+                    }
+                }
+                    break;
+
+                case '10': {
+                    for (let i = 0; i < 10; i++) {
+                        users ();
+                    }
+                }
+                    break;
+                case '15': {
+                    for (let i = 0; i < 15; i++) {
+                        users ();
+                    }
+                }
+                    break;
+                case '20': {
+                    for (let i = 0; i < 20; i++) {
+                        users ();
+                    }
+                }
+                    break;
+            }
+        })
+
     </script>
 </body>
 
