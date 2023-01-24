@@ -116,13 +116,13 @@
         // }
 
         function users(item) {
-            out.innerHTML += " ";
+            out.innerHTML = ``;
             fetch(`https://randomuser.me/api/`)
                 .then(data => data.json())
                 .then(data => {
                     console.log(data);
                     let { results } = data;
-                    out.innerHTML += " ";
+
                     out.innerHTML += `
                 <div class="section__item">
                     <h2>User</h2>
