@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Dark {
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+        }
+
+        .Light {
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+        }
+
+        .div {
+            width: 100px;
+            background-color: aqua;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid;
+            position: relative;
+        }
+
+        .div__item {
+            width: 45px;
+            height: 45px;
+            background-color: brown;
+            border-radius: 50px;
+            position: absolute;
+            right: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .6s;
+        }
+
+        .div__item--active {
+            right: 53px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div__item"></div>
+    </div>
+
+    <h1>Test</h1>
+
+    <input class="inp" type="checkbox">
+
+
+    <input class="input" type="text">
+    <button>add</button>
+    <button class="clean">clean</button>
+
+    <div class="out"></div>
+
+    <script>
+
+        let arr = [
+            'Sasha1', 'Sasha2', 'Sasha3'
+        ]
+
+        let obj = {
+            name: "sasha",
+            age: 12,
+        }
+
+        let users = [
+            {
+                name: "sasha",
+                age: 12,
+            },
+            {
+                name: "sasha2",
+                age: 22,
+            },
+            {
+                name: "sasha 3",
+                age: 33,
+            }
+        ]
+
+
+        console.log("test");
+        let inp = document.querySelector('.input')
+        let inp2 = document.querySelector('.inp')
+        let clean = document.querySelector('.clean')
+        let out = document.querySelector('.out')
+
+
+        let res = localStorage.getItem('num2');
+        inp.value = localStorage.getItem('num2');
+        let a = 40;
+
+
+        //Додаємо єлемент в LocalStorage
+        localStorage.setItem('test', a)
+
+        //Отримуємо 
+        let newA = localStorage.getItem('test');
+        console.log(newA);
+
+
+        // Видаляємо по ключу
+        localStorage.removeItem('test')
+
+        clean.onclick = () => {
+            // Видаляємо все
+            localStorage.clear();
+        }
+
+
+        // РОбота з масивами
+        localStorage.setItem('arr', arr)
+        console.log(localStorage.getItem('arr'));
+
+        localStorage.setItem('obj', obj)
+        console.log(localStorage.getItem('obj'));
+
+
+        // Перетворюжмо строку на сасив або обєкт
+        //localStorage.setItem('obj2', JSON.stringify(users))
+        // console.log(localStorage.getItem('obj2'));
+
+        //let new2 = JSON.parse(localStorage.getItem('obj2'))
+        //let new3 = JSON.parse(new2)
+        //console.log(new2);
+
+
+        document.querySelector('button').onclick = () => {
+
+            users.push({ name: inp.value, age: 20 })
+            localStorage.setItem('obj2', JSON.stringify(users))
+            let new2 = JSON.parse(localStorage.getItem('obj2'))
+
+        }
+
+        inp2.onchange = () => {
+            console.log(inp2.checked);
+            if (inp2.checked) {
+                localStorage.setItem('theme', "Dark")
+            } else {
+                localStorage.setItem('theme', "Light")
+            }
+        }
+
+
+        let theme = localStorage.getItem('theme')
+
+
+        if (theme == 'Dark') {
+            document.querySelector('body').classList.add('Dark')
+        } else {
+            document.querySelector('body').classList.add('Light')
+        }
+
+        let div = document.querySelector('.div')
+        let divItem = document.querySelector('.div__item')
+        div.onclick = () => {
+            divItem.classList.add('div__item--active')
+            document.querySelector('body').classList.remove('Light')
+            document.querySelector('body').classList.add('Dark')
+            localStorage.setItem('theme', "Dark")
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

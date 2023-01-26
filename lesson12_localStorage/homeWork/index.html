@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Dark {
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+        }
+
+        .Light {
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+        }
+
+        .div {
+            width: 100px;
+            background-color: aqua;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid;
+            position: relative;
+        }
+
+        .div__item {
+            width: 45px;
+            height: 45px;
+            background-color: brown;
+            border-radius: 50px;
+            position: absolute;
+            right: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .6s;
+        }
+
+        .div__item--active {
+            right: 53px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div__item"></div>
+    </div>
+
+    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, delectus.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo saepe molestiae pariatur quibusdam, voluptatem,
+        officiis autem facilis accusamus voluptatum deserunt libero dolorem perferendis adipisci dolor animi, molestias
+        porro voluptates enim distinctio numquam magni quod mollitia ullam? Quidem omnis illo fuga fugiat aliquid!
+        Facilis ab magni voluptatibus unde fuga vel modi praesentium ea. Rerum voluptas numquam commodi totam veniam
+        vero deleniti aliquid. Reprehenderit reiciendis porro, consequatur aliquid ex iste error inventore recusandae
+        alias accusantium velit distinctio quam harum commodi. Dolor aspernatur id a quisquam nesciunt autem voluptatem
+        minima dolore. Fuga odio voluptates error qui iste quam minus alias nostrum tempora perspiciatis?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo saepe molestiae pariatur quibusdam, voluptatem,
+        officiis autem facilis accusamus voluptatum deserunt libero dolorem perferendis adipisci dolor animi, molestias
+        porro voluptates enim distinctio numquam magni quod mollitia ullam? Quidem omnis illo fuga fugiat aliquid!
+        Facilis ab magni voluptatibus unde fuga vel modi praesentium ea. Rerum voluptas numquam commodi totam veniam
+        vero deleniti aliquid. Reprehenderit reiciendis porro, consequatur aliquid ex iste error inventore recusandae
+        alias accusantium velit distinctio quam harum commodi. Dolor aspernatur id a quisquam nesciunt autem voluptatem
+        minima dolore. Fuga odio voluptates error qui iste quam minus alias nostrum tempora perspiciatis?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo saepe molestiae pariatur quibusdam, voluptatem,
+        officiis autem facilis accusamus voluptatum deserunt libero dolorem perferendis adipisci dolor animi, molestias
+        porro voluptates enim distinctio numquam magni quod mollitia ullam? Quidem omnis illo fuga fugiat aliquid!
+        Facilis ab magni voluptatibus unde fuga vel modi praesentium ea. Rerum voluptas numquam commodi totam veniam
+        vero deleniti aliquid. Reprehenderit reiciendis porro, consequatur aliquid ex iste error inventore recusandae
+        alias accusantium velit distinctio quam harum commodi. Dolor aspernatur id a quisquam nesciunt autem voluptatem
+        minima dolore. Fuga odio voluptates error qui iste quam minus alias nostrum tempora perspiciatis?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo saepe molestiae pariatur quibusdam, voluptatem,
+        officiis autem facilis accusamus voluptatum deserunt libero dolorem perferendis adipisci dolor animi, molestias
+        porro voluptates enim distinctio numquam magni quod mollitia ullam? Quidem omnis illo fuga fugiat aliquid!
+        Facilis ab magni voluptatibus unde fuga vel modi praesentium ea. Rerum voluptas numquam commodi totam veniam
+        vero deleniti aliquid. Reprehenderit reiciendis porro, consequatur aliquid ex iste error inventore recusandae
+        alias accusantium velit distinctio quam harum commodi. Dolor aspernatur id a quisquam nesciunt autem voluptatem
+        minima dolore. Fuga odio voluptates error qui iste quam minus alias nostrum tempora perspiciatis?</p>
+
+    <script>
+
+
+
+
+        // Зробити світлу тему
+        // анімацю перування кнопи
+
+
+        let theme = localStorage.getItem('theme')
+
+
+        if (theme == 'Dark') {
+            document.querySelector('body').classList.add('Dark')
+        } else {
+            document.querySelector('body').classList.add('Light')
+        }
+
+        let div = document.querySelector('.div')
+        let divItem = document.querySelector('.div__item')
+        div.onclick = () => {
+
+            localStorage.setItem('theme', "Dark") // Поміняти на Light
+
+            divItem.classList.add('div__item--active') // Видалити
+            document.querySelector('body').classList.remove('Light') // Додати
+            document.querySelector('body').classList.add('Dark') // Видалити
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

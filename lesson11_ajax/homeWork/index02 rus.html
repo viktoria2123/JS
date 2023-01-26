@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+    background-color: rgba(172, 255, 47, 0.384)
+  }
+
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: rgba(172, 255, 47, 0.347);
+  }
+
+  .select {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .main__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+  .main__item {
+    padding: 16px;
+    border: 1px solid blue;
+    border-radius: 15px;
+  }
+
+  .main__img {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-row {
+    margin: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btn {
+    display: block;
+    background-color: blueviolet;
+    color: #fff;
+    min-width: 40px;
+    border: none;
+    border-radius: 10px;
+  }
+
+
+  .green {
+    background-color: rgb(144, 215, 144);
+  }
+
+  .dark {
+    background-color: rgba(0, 0, 0, 0.447);
+  }
+
+  .orange {
+    background-color: rgba(255, 166, 0, 0.375);
+  }
+</style>
+
+<body>
+
+  <section class="main">
+    <div class="container">
+      <h2> Рік і Морті Герої</h2>
+      <div class="btn-row">
+
+      </div>
+      <nav>
+        <select class="select" name="" id="">
+
+        </select>
+      </nav>
+
+      <div class="main__row">
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    const out = document.querySelector('.main__row')
+    const select = document.querySelector('.select')
+    const btnout = document.querySelector('.btn-row')
+
+
+
+    showButton() //робимо кнопки
+
+    showfirst() // виводимо пешу стоор.
+
+    function creatItem(item) {
+
+      let mainItem = document.createElement('div');
+      let mainName = document.createElement('h2');
+      let mainImg = document.createElement('img');
+      let mainGender = document.createElement('p');
+      let mainSpecies = document.createElement('p');
+      let mainStatus = document.createElement('p');
+      let mainCreated = document.createElement('p');
+
+      mainItem.classList.add('main__item');
+      mainName.classList.add('main__name');
+      mainImg.classList.add('main__img');
+      mainGender.classList.add('main__text');
+      mainSpecies.classList.add('main__text');
+      mainStatus.classList.add('main__text');
+      mainCreated.classList.add('main__text');
+
+      mainName.innerText = item.name;
+      mainImg.setAttribute('src', item.image);
+      mainGender.innerHTML = `Стать: <b>${item.gender}</b>`;
+      mainSpecies.innerHTML = `Вид: <b>${item.species}</b>`;
+      mainStatus.innerHTML = `Стан: <b>${item.status}</b></b>`;
+      mainCreated.innerHTML = `Дата: <i>${item.created}</i>`;
+
+      mainItem.append(mainName, mainImg, mainGender, mainSpecies, mainStatus, mainCreated);
+
+
+      return mainItem
+    }
+
+    //створюємо кнопки з переходом на конкретні сторінки
+    function showButton() {
+      fetch('https://rickandmortyapi.com/api/character')
+        .then(data => data.json()) //потім
+        .then(data => {
+          // console.log(data.info.pages);
+          let count = data.info.pages; //кількість сторінок - це кількість кнопок
+          for (let i = 1; i <= count; i++) {  //створюю кнопки, цикл малює кнопки
+            let btn = document.createElement('button');
+            btn.classList.add('btn');
+            btn.setAttribute('value', i)
+            btn.innerHTML = i;
+            // навішуємо подію onclick для переходу на відповідно сторінку
+            btn.onclick = () => {
+              // викликаємо ф. яка виводить конкрет.стор. та передаємо їй відповідний аргумент
+              // pages(btn.innerHTML) // можна через innerHTML
+              pages(btn.value)
+            }
+            btnout.append(btn);
+          }
+
+        }) //потім
+        .catch(err => console.log('Error: ' + err)) //помилка
+      // .finally() // спрацює в будь-якому випадку
+
+    }
+
+
+    //показуємо першу стор. при першому завантаженні 
+    function showfirst() {
+      out.innerHTML = '';
+      fetch(`https://rickandmortyapi.com/api/character?page=1`)
+        .then(data => data.json()) //потім
+        .then(data => {
+          let arr = data.results;
+          console.log(data.results);
+          let newArr2 = [];
+          creatSelect(arr)
+
+          arr.forEach((item) => {
+            let newPers = creatItem(item);
+            out.append(newPers);
+            if (item.status === "Dead") {
+              newPers.classList.add('dark');
+            }
+            if (item.status === "Alive") {
+              newPers.classList.add('green');
+            }
+
+            if (item.status === "unknown") {
+              newPers.classList.add('orange');
+            }
+          })
+          select.addEventListener('change', () => {
+            out.innerHTML = '';
+            let ar1 = data.results;
+            ar1.forEach((item) => {
+              if (item.species == select.value) {
+                let newPers = creatItem(item);
+                out.append(newPers);
+              }
+
+            })
+          })
+
+        }) //потім
+        .catch(err => console.log('Error: ' + err)) //помилка
+      // .finally() // спрацює в будь-якому випадку
+
+    }
+
+    //вивід конкретної сторінки (для кнопок) після кліку в Ф.showButton
+    function pages(num) {
+      out.innerHTML = '';
+      fetch(`https://rickandmortyapi.com/api/character?page=${num}`)
+        .then(data => data.json()) //потім
+        .then(data => {
+          let arr = data.results;
+          console.log(data);
+          creatSelect(arr)
+
+          arr.forEach((item) => {
+            let newPers = creatItem(item);
+            out.append(newPers);
+            if (item.status === "Dead") {
+              newPers.classList.add('dark');
+            }
+            if (item.status === "Alive") {
+              newPers.classList.add('green');
+            }
+
+            if (item.status === "unknown") {
+              newPers.classList.add('orange');
+            }
+          })
+
+          select.addEventListener('change', () => {
+            out.innerHTML = '';
+            let ar1 = data.results;
+            ar1.forEach((item) => {
+              if (item.species == select.value) {
+                let newPers = creatItem(item);
+                out.append(newPers);
+              }
+
+            })
+          })
+
+        }) //потім
+        .catch(err => console.log('Error: ' + err)) //помилка
+      // .finally() // спрацює в будь-якому випадку
+
+    }
+
+    //створення карточок
+
+
+    //створення селекту з option, додавання видів без дублікатів в селект
+
+    // додає інші види при переході на інші сторінки????
+    // потрібно чистити newArr2...
+    function creatSelect(selItem) {
+      let newArr = [];
+      select.innerHTML = '';
+      selItem.map((item) => {
+        newArr.push(item.species);
+      })
+
+      let newArr2 = new Set(newArr);
+
+      newArr2.forEach((item) => {
+        selOption = document.createElement('option');
+        selOption.setAttribute('value', item);
+        selOption.innerText = item;
+        select.append(selOption);
+        // select.innerHTML += `<option value='${item}'>${item}</option>`
+
+      })
+      //  newArr2 = [];
+
+    }
+
+        //сортування по селект - не працює? 
+        // сортуэ лише першу сторінку??
+        // select.addEventListener('change', () => {
+        //     out.innerHTML = '';
+        //     fetch('https://rickandmortyapi.com/api/character')
+        //         .then(data => data.json()) //потім
+        //         .then(data => {
+        //             let ar1 = data.results;
+        //             ar1.forEach((item) => {
+        //                 if (item.species == select.value) {
+        //                     let newPers = creatItem(item);
+        //                     out.append(newPers);
+        //                 }
+
+        //             })
+        //         })
+
+        //         .catch(err => console.log('Error: ' + err)) //помилка
+        //     // .finally() // спрацює в будь-якому випадку
+        // })
+
+  </script>
+</body>
+
+</html>

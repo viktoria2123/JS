@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Open Sans", sans-serif;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .main__row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+    .main__item {
+      padding: 16px;
+      border: 1px solid;
+      border-radius: 20px;
+    }
+    .main__img {
+      display: block;
+      width: 100%;
+    }
+    .btn-row {
+      margin: 16px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+    }
+    .btn {
+      display: block;
+      background-color: #007aff;
+      color: #fff;
+      min-width: 40px;
+      border: none;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<section class="main">
+
+  <div class="container">
+    <h2> Рік і Морті Герої</h2>
+
+    <div class="btn-row">
+
+    </div>
+    <nav>
+      <select class="select" name="" id="">
+
+      </select>
+    </nav>
+    <div class="main__row">
+
+      <!--                Зробити через create Element-->
+      <!--                <div class="main__item">-->
+      <!--                    <h2 class="main__title"></h2>-->
+      <!--                    <img class="main__img" src="" alt="">-->
+      <!--                    <p class="main__text">Стать: <b></b></p>-->
+      <!--                    <p class="main__text">Вид: <b></b></p>-->
+      <!--                    <p class="main__text">Стан: <b></b></p>-->
+      <!--                    <p class="main__text">Дата: <i></i></p>-->
+      <!--                </div>-->
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<script>
+  // 1: Сортуємо по
+  // 2; кольори станів Dead = сірий / Alive = зелений / unknown = ваш росуд
+  const out = document.querySelector('.main__row')
+  const select = document.querySelector('.select')
+  const btnOut = document.querySelector('.btn-row')
+
+  showButton()
+  showFirst()
+
+  function showButton() {
+    fetch('https://rickandmortyapi.com/api/character')
+            .then(data => data.json()) // потім
+            .then(data => {
+              console.log(data) //data це обєкт
+
+              let count = data.info.pages; // беру кількість кнопок
+
+              // Цикл який малює кнопки
+              for(let i = 1; i <= count; i++) {
+                let btn = document.createElement('button')
+                btn.setAttribute("value", `${i}`)
+                btn.classList.add('btn')
+                btn.innerHTML = `${i}`;
+                btn.onclick = () => {
+                  pages(btn.value)
+                }
+                btnOut.append(btn)
+              }
+            }) // потім
+            .catch(err => console.log('Error: ', err)) // помилка
+    //.finally() // в любому випадку відпрацює
+  }
+
+  function showFirst() {
+    out.innerHTML = ``
+    fetch(`https://rickandmortyapi.com/api/character?page=1`)
+            .then(data => data.json()) // потім
+            .then(data => {
+              let arr = data.results;
+              console.log(data)
+              createSelect(data.results)
+              arr.forEach((item)=>{
+
+                let newPers = createItem(item);
+                out.innerHTML += newPers;
+              })
+
+            }) // потім
+            .catch(err => console.log('Error: ', err)) // помилка
+    //.finally() // в любому випадку відпрацює
+  }
+
+  function pages(num) {
+    out.innerHTML = `` // Очищуемо out
+    fetch(`https://rickandmortyapi.com/api/character?page=${num}`)
+            .then(data => data.json()) // потім
+            .then(data => {
+              let arr = data.results;
+              console.log(data)
+              createSelect(data.results)
+              arr.forEach((item)=>{
+                let newPers = createItem(item);
+                out.innerHTML += newPers;
+              })
+
+            }) // потім
+            .catch(err => console.log('Error: ', err)) // помилка
+    //.finally() // в любому випадку відпрацює
+  }
+
+  function createItem(item) {
+    return `
+            <div class="main__item">
+                    <h2 class="main__title">${item.name}</h2>
+                    <img class="main__img" src="${item.image}" alt="">
+                    <p class="main__text">Стать: <b>${item.gender}</b></p>
+                    <p class="main__text">Вид: <b>${item.species}</b></p>
+                    <p class="main__text">Стан: <b>${item.status}</b></p>
+                    <p class="main__text">Дата: <i>${item.created}</i></p>
+                </div>
+            `
+  }
+
+  function createSelect(selItem) {
+    let newArr = [];
+    selItem.map((item)=>{
+      newArr.push(item.species)
+    })
+    let newArr2 = new Set(newArr)
+
+    newArr2.forEach((item)=>{
+      select.innerHTML += `<option value="${item}"> ${item} </option>>`
+    })
+  }
+
+
+</script>
+</body>
+</html>

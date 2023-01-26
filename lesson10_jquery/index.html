@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 5px;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input class="inp" type="text">
+    <div class="out">0</div>
+
+    <img src="./2.jpeg" alt="" width="300">
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <script>
+        // $() document.querySelectorAll() => .forEach and .map
+
+        // let box = document.querySelectorAll('.box')
+
+        // box.forEach((item)=>{
+        //     item
+        // })
+
+        $('.box').css()
+
+        //$('.box').css('border', '2px solid red')
+        // звертаємося до батьківського єлементу
+        // $('.box').parent().css('border', '2px solid red')
+
+        // :first :last / :odd не четні :eq(0)
+        // $('.box:eq(3)').css('border', '2px solid blue')
+
+
+        //Click // dblclick
+        $('.box').dblclick(function () {
+            $(this).toggleClass('red')
+            // console.log($(this));
+        })
+
+
+        // onchange
+        $('.inp').change(function () {
+            $('.out').text($(this).val())
+        })
+
+        // pressKey keyup
+        $('.inp').keyup(function () {
+            $('.out').text($(this).val())
+        })
+
+
+        // Animation
+
+        ///$('.box:first').delay(1000).hide(1000).delay(1000).show(1000)
+        //$('.box:first').animate({ 'width': '300px' }, 1000).animate({ 'width': '100px' }, 1000);
+        //$('.box:first').slideUp(1000).slideDown(1000)
+
+        $('img').click(function () {
+            $(this).fadeOut(500, function () {
+                $(this).attr('src', './2.png').fadeIn(500);
+            })
+        })
+
+
+        // Додаємо класс
+        $('img').addClass('active');
+        $('img').append('Додає щось'); // innerHTML = a
+        $('img').after('Додає щось після'); // innerHTML += a
+        $('.out').wrap('<h1></h1>');
+    </script>
+
+</body>
+
+</html>
