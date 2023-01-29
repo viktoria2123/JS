@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .item {
+            padding: 10px;
+            border: 1px solid;
+
+        }
+
+        .out {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="out">
+        <!-- <div class="item">
+            <h5>name</h5>
+            <p>age</p>
+            <button>add</button>
+        </div> -->
+
+    </div>
+
+
+
+    <script>
+
+        let user = [
+            {
+                name: "Sasha",
+                age: 22,
+            },
+            {
+                name: "Sasha 2",
+                age: 22,
+            },
+            {
+                name: "Sasha 3",
+                age: 23,
+            },
+            {
+                name: "Sasha 4",
+                age: 11,
+            },
+            {
+                name: "Sasha 5",
+                age: 10,
+            },
+        ]
+
+
+
+        let out = document.querySelector('.out')
+
+        function addItem(newArr) {
+            let item = document.createElement('div')
+            let name = document.createElement('h5');
+            let age = document.createElement('p');
+            let btn = document.createElement('button');
+
+            item.classList.add('item');
+            name.classList.add('item__name');
+            age.classList.add('item__age');
+            btn.classList.add('item__btn');
+
+            name.innerHTML = `Ім"я: <b>${newArr.name}</b>`;
+            age.innerHTML = `Вік: <b>${newArr.age}</b>`;
+            btn.innerHTML = `add`;
+
+            item.append(name, age, btn);
+
+            return item;
+
+            console.log(item);
+        }
+
+
+        function showAll() {
+            user.forEach((item) => {
+                out.append(addItem(item))
+            })
+        }
+        showAll()
+
+
+
+
+    </script>
+</body>
+
+</html>

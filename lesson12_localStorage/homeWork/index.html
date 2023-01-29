@@ -19,7 +19,7 @@
 
         .div {
             width: 100px;
-            background-color: aqua;
+            background-color: rgb(98, 0, 255);
             height: 50px;
             border-radius: 50px;
             border: 1px solid;
@@ -29,17 +29,20 @@
         .div__item {
             width: 45px;
             height: 45px;
-            background-color: brown;
+            background-color: rgb(255, 0, 0);
             border-radius: 50px;
+            border: 1px solid;
             position: absolute;
             right: 3px;
             top: 50%;
             transform: translateY(-50%);
             transition: all .6s;
+
         }
 
         .div__item--active {
             right: 53px;
+
         }
     </style>
 </head>
@@ -85,7 +88,7 @@
 
 
         // Зробити світлу тему
-        // анімацю перування кнопи
+        // анімацю персування кнопи
 
 
         let theme = localStorage.getItem('theme')
@@ -107,7 +110,43 @@
             document.querySelector('body').classList.remove('Light') // Додати
             document.querySelector('body').classList.add('Dark') // Видалити
 
+
+            localStorage.setItem('theme', "Light") // Поміняти на Light
+
+            divItem.classList.add('div__item--active').classList.remove('active') // Видалити
+            document.querySelector('body').classList.remove('Dark') // Додати
+            document.querySelector('body').classList.add('Light') // Видалити
+
         }
+
+        // if (theme == 'Light') {
+        //     div.onclick = () => {
+
+        //         localStorage.setItem('theme', "Light") // Поміняти на Light
+
+        //         divItem.classList.add('div__item--active').classList.remove('active') // Видалити
+        //         document.querySelector('body').classList.remove('Dark') // Додати
+        //         document.querySelector('body').classList.add('Light') // Видалити
+
+
+
+
+        //     }
+        // } else {
+        //     div.onclick = () => {
+
+        //         localStorage.setItem('theme', "Dark") // Поміняти на Light
+
+        //         divItem.classList.add('div__item--active') // Видалити
+        //         document.querySelector('body').classList.remove('Light') // Додати
+        //         document.querySelector('body').classList.add('Dark') // Видалит
+
+
+
+
+        //     }
+        // }
+
 
 
 
