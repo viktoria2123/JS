@@ -1,0 +1,21 @@
+{
+  "name": "lesson12_gulp-webpack",
+  "version": "1.0.0",
+  "description": "node v18.12.0 npm v6.14.17",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp dev --development",
+    "build": "gulp build --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-mode": "^1.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.57.1"
+  }
+}
